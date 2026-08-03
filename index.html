@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Safary Marketing — Deal Flow Engine for Private &amp; Investor Lenders</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1729;
+    --ink-2:#071E36;
+    --gold:#0D81D3;        /* brand blue — var name kept to keep edits minimal */
+    --gold-dark:#0B6FB8;
+    --paper:#F6F9FC;
+    --white:#fff;
+    --muted:#52657A;
+    --line:#E3E2DE;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink);
+    /* Brand bubble motif (matches safarymarketing.io) — inline SVG, no external files */
+    background:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900'%3E%3Cg fill='%23E4EFFB'%3E%3Ccircle cx='140' cy='170' r='85'/%3E%3Ccircle cx='440' cy='90' r='52'/%3E%3Ccircle cx='770' cy='210' r='112'/%3E%3Ccircle cx='1085' cy='120' r='44'/%3E%3Ccircle cx='1305' cy='255' r='96'/%3E%3Ccircle cx='90' cy='515' r='60'/%3E%3Ccircle cx='330' cy='560' r='82'/%3E%3Ccircle cx='620' cy='640' r='120'/%3E%3Ccircle cx='985' cy='560' r='70'/%3E%3Ccircle cx='1250' cy='620' r='54'/%3E%3Ccircle cx='200' cy='825' r='90'/%3E%3Ccircle cx='525' cy='865' r='48'/%3E%3Ccircle cx='860' cy='845' r='76'/%3E%3Ccircle cx='1160' cy='835' r='86'/%3E%3C/g%3E%3C/svg%3E") center top / cover no-repeat fixed,
+      var(--paper);
+    line-height:1.55;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  section{padding:84px 0}
+  .eyebrow{
+    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    font-weight:700;color:var(--gold);margin-bottom:22px;
+  }
+  h1{font-size:clamp(32px,5.2vw,58px);line-height:1.08;letter-spacing:-.02em;font-weight:800}
+  h2{font-size:clamp(25px,3.4vw,38px);line-height:1.15;letter-spacing:-.015em;font-weight:800;margin-bottom:20px}
+  h3{font-size:19px;font-weight:750;margin-bottom:9px;letter-spacing:-.01em}
+  p{font-size:17px;color:var(--ink);margin-bottom:16px}
+  .lede{font-size:20px;line-height:1.5}
+  .muted{color:var(--muted)}
+  .btn{
+    display:inline-block;background:var(--gold);color:#fff;
+    font-weight:700;font-size:17px;letter-spacing:-.01em;
+    padding:17px 38px;border-radius:6px;text-decoration:none;
+    border:1px solid var(--gold);
+    box-shadow:0 1px 2px rgba(15,23,41,.10);
+    transition:background .15s ease,border-color .15s ease;
+  }
+  .btn:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
+  .btn-micro{font-size:14px;color:var(--muted);margin-top:14px}
+
+  /* HERO */
+  .hero{background:var(--ink);color:var(--white);padding:96px 0 88px}
+  .hero h1{color:#fff;max-width:19ch}
+  .hero .sub{font-size:20px;line-height:1.5;color:#C7D2DC;margin:26px 0 34px;max-width:60ch}
+  .hero .btn-micro{color:#8FA3B4}
+  .hero strong{color:var(--gold);font-weight:700}
+
+  /* FLUENCY */
+  .fluency{background:var(--ink-2);color:#fff;padding:56px 0}
+  .fluency h2{color:#fff;font-size:22px;margin-bottom:26px}
+  .fgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:26px}
+  .fgrid p{color:#C7D2DC;font-size:15.5px;margin:0}
+  .fgrid b{color:#fff}
+  .fclose{margin-top:34px;padding-top:26px;border-top:1px solid #2A425A;
+    font-size:18px;font-weight:700;color:var(--gold)}
+
+  /* PAIN */
+  .pain{border-bottom:1px solid var(--line)}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:34px;margin-top:14px}
+  .pgrid h3{color:var(--ink)}
+  .pgrid p{font-size:16px;color:var(--muted);margin:0}
+
+  /* SQUEEZE band */
+  .band{background:var(--ink);color:#fff;text-align:center;padding:64px 0}
+  .band h2{color:#fff;max-width:22ch;margin:0 auto 16px}
+  .band p{color:#C7D2DC;max-width:52ch;margin:0 auto}
+  .band .big{color:var(--gold);font-weight:800}
+
+  /* METHOD */
+  .method .phase{
+    display:grid;grid-template-columns:120px 1fr;gap:28px;
+    padding:30px 0;border-top:1px solid var(--line);
+  }
+  .method .phase:last-of-type{border-bottom:1px solid var(--line)}
+  .pnum{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--gold);padding-top:4px}
+  .method .kicker{margin-top:30px;font-size:19px;font-weight:700}
+
+  /* DATA */
+  .data{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:22px;margin:30px 0 22px}
+  .stat{border-left:3px solid var(--gold);padding:6px 0 6px 18px}
+  .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
+  .stat .l{font-size:14.5px;color:var(--muted);margin-top:6px}
+  .src{font-size:13.5px;color:var(--muted);font-style:italic}
+  .mathbox{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px;margin-top:34px}
+  .mathbox p:last-child{margin-bottom:0}
+
+  /* INCLUDED */
+  .inc{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:12px 34px;margin-top:8px}
+  .inc div{padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;font-weight:600}
+
+  /* FOUNDING */
+  .founding{background:var(--ink);color:#fff;text-align:center}
+  .founding h2{color:#fff;max-width:20ch;margin:0 auto 20px}
+  .founding p{color:#C7D2DC;max-width:56ch;margin:0 auto 16px}
+
+  /* FOUNDER */
+  .founder{display:grid;grid-template-columns:180px 1fr;gap:38px;align-items:start}
+  .avatar{width:180px;height:180px;border-radius:8px;background:var(--line);
+    display:flex;align-items:center;justify-content:center;color:var(--muted);
+    font-size:13px;text-align:center;padding:14px}
+
+  /* DONT */
+  .dont{background:var(--white);border-top:1px solid var(--line)}
+  .dont .kicker{font-size:19px;font-weight:700;margin-top:18px}
+
+  /* FAQ */
+  details{border-bottom:1px solid var(--line);padding:20px 0}
+  summary{font-size:18px;font-weight:700;cursor:pointer;list-style:none;letter-spacing:-.01em}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";float:right;color:var(--gold);font-weight:800}
+  details[open] summary::after{content:"–"}
+  details p{margin:14px 0 0;color:var(--muted);font-size:16.5px;max-width:74ch}
+
+  /* BOOK */
+  .book{background:var(--ink);color:#fff}
+  .book h2{color:#fff}
+  .book p{color:#C7D2DC;max-width:58ch}
+  .calbox{margin-top:32px;border:2px dashed #38506A;border-radius:10px;
+    padding:52px 26px;text-align:center;color:#8FA3B4;font-size:15px}
+  .fields{margin-top:20px;font-size:14.5px;color:#8FA3B4}
+
+  /* VSL */
+  .vslbox{margin:0 auto;max-width:760px;aspect-ratio:16/9;background:var(--ink-2);
+    border-radius:10px;display:flex;align-items:center;justify-content:center;
+    color:#8FA3B4;font-size:15px;text-align:center;padding:26px;border:1px solid #2A425A}
+
+  footer{background:#08131F;color:#7B8A99;padding:44px 0;font-size:13.5px}
+  footer p{color:#7B8A99;font-size:13.5px;max-width:88ch}
+
+  .note{background:#FFF8E6;border:1px solid #E8D49A;border-radius:6px;
+    padding:12px 16px;font-size:13.5px;color:#6B5518;margin-bottom:26px}
+
+  @media(max-width:720px){
+    section{padding:60px 0}
+    .founder{grid-template-columns:1fr;gap:22px}
+    .avatar{width:120px;height:120px}
+    .method .phase{grid-template-columns:1fr;gap:8px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Attention private &amp; hard money lenders</div>
+    <h1>Three of every four borrowers you fund will finance their next deal somewhere else.</h1>
+    <p class="sub">We build borrower acquisition systems that deliver <strong>6–12 pre-qualified investor appointments a month</strong> — borrowers with a property under contract and a close date — or you don't pay.</p>
+    <a class="btn" href="#book">Book a Call</a>
+    <div class="btn-micro">30 minutes. If the math doesn't work for you, we'll tell you on the call.</div>
+  </div>
+</section>
+
+<!-- VSL -->
+<section style="padding-bottom:56px">
+  <div class="wrap">
+    <div class="vslbox">[ VSL — 2:30. Talking head, plain shoot.<br>Script written and ready to record. ]</div>
+    <div style="text-align:center;margin-top:30px">
+      <a class="btn" href="#book">Book a Call</a>
+    </div>
+  </div>
+</section>
+
+<!-- FLUENCY -->
+<section class="fluency">
+  <div class="wrap">
+    <h2>We speak your business.</h2>
+    <div class="fgrid">
+      <p>We know whether you're <b>Dutch or non-Dutch</b> on rehab holdback — and why your answer is a marketing angle either way.</p>
+      <p>We know your <b>draw turnaround</b> is the number one reason experienced borrowers leave, whatever your rate sheet says.</p>
+      <p>We know <b>RTL grew 13% last quarter while DSCR fell 8.8%</b> — and which of those your Q4 depends on.</p>
+      <p>We know <b>advertising into a state you're not licensed in</b> is itself a solicitation trigger. Your campaigns never will.</p>
+    </div>
+    <div class="fclose">You will not spend the first call explaining your industry to us.</div>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="wrap">
+    <h2>Here's how lenders lose deals they already paid for.</h2>
+    <div class="pgrid">
+      <div>
+        <h3>They answer in six hours.</h3>
+        <p>Fewer than 2% of web inquiries get a call inside the first hour. Your borrower has hard earnest money and a 14-day close — so they call the next lender on the page.</p>
+      </div>
+      <div>
+        <h3>They never follow up with borrowers they already funded.</h3>
+        <p>Casual-borrower retention runs 26% industry-wide. The top of the market keeps 84%. That gap is deals you already paid to acquire.</p>
+      </div>
+      <div>
+        <h3>They let the DSCR takeout walk.</h3>
+        <p>The bridge borrower seasons at six months and refinances somewhere else — a second origination on a property you already underwrote.</p>
+      </div>
+      <div>
+        <h3>They can't tell you what a funded loan costs.</h3>
+        <p>The ad platform reports clicks. The CRM reports contacts. The settlement statement lives somewhere else entirely, and nothing connects them.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BAND -->
+<section class="band">
+  <div class="wrap">
+    <h2>And it's getting harder to out-price.</h2>
+    <p>Spreads are the tightest ever tracked — <span class="big">283 basis points</span> over the ten-year, down from 424 in early 2024. Price stopped being a differentiator. Execution is what's left.</p>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method">
+  <div class="wrap">
+    <h2>The Deal Flow Method</h2>
+    <p class="lede muted" style="max-width:62ch">One system, three phases. Built for lenders originating fix-and-flip, bridge, ground-up construction, and DSCR.</p>
+
+    <div class="phase">
+      <div class="pnum">PHASE 01</div>
+      <div>
+        <h3>Reactivate</h3>
+        <p class="muted" style="margin:0">Your past borrowers, dead scenarios, and unfunded term sheets. The cheapest deal flow you own and the fastest to produce — this is usually where your first appointments come from, before a single ad runs.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="pnum">PHASE 02</div>
+      <div>
+        <h3>Capture</h3>
+        <p class="muted" style="margin:0">Geo-concentrated search in the states you're licensed in, a borrower tier assessment as the front door, and a five-minute response that qualifies and books — before you ever see a raw lead.</p>
+      </div>
+    </div>
+    <div class="phase">
+      <div class="pnum">PHASE 03</div>
+      <div>
+        <h3>Compound</h3>
+        <p class="muted" style="margin:0">Seasoning triggers fire the DSCR takeout against your own bridge book. Two originations per property. Near-zero acquisition cost on the second.</p>
+      </div>
+    </div>
+
+    <p class="kicker">Reactivate what you have. Capture what's searching. Compound what you fund.</p>
+  </div>
+</section>
+
+<!-- DATA -->
+<section class="data">
+  <div class="wrap">
+    <h2>Don't take my word for it. Here's the industry data.</h2>
+    <div class="stats">
+      <div class="stat"><div class="n">21&times;</div><div class="l">Better conversion at a 5-minute response vs. 30 minutes</div></div>
+      <div class="stat"><div class="n">26% &rarr; 84%</div><div class="l">Industry borrower retention vs. the top of the market</div></div>
+      <div class="stat"><div class="n">283 bps</div><div class="l">DSCR spread over the 10-year — tightest ever tracked</div></div>
+      <div class="stat"><div class="n">+13% / &minus;8.8%</div><div class="l">RTL vs. DSCR origination growth, Q1 2026</div></div>
+    </div>
+    <p class="src">Source: SFR Analytics / NPLA private lending market data, Urban Institute RTL research, and industry speed-to-lead benchmarks, 2026.</p>
+
+    <div class="mathbox">
+      <h3>Then the arithmetic on your side of the table.</h3>
+      <p>$5,000 a month in media buys roughly <strong>6–12 pre-qualified appointments</strong>, which converts to <strong>1–3 funded loans</strong> at typical close rates. A funded bridge deal puts $6,000–$14,000 on your books before spread.</p>
+      <p>Break-even sits between one and two funded loans a month, depending on your revenue per loan — which is exactly why we ask what yours is before quoting anything.</p>
+      <p><strong>We report cost per funded loan.</strong> Not cost per lead. Not impressions. The number you actually manage to.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INCLUDED -->
+<section>
+  <div class="wrap">
+    <h2>We handle everything A–Z.</h2>
+    <div class="inc">
+      <div>Five-minute response, 24/7</div>
+      <div>Qualification before booking</div>
+      <div>Geo-concentrated search &amp; Google Business Profile</div>
+      <div>Borrower tier assessment &amp; ARV calculator</div>
+      <div>Database reactivation</div>
+      <div>DSCR takeout campaigns</div>
+      <div>Funded-loan attribution &amp; monthly reporting</div>
+      <div>Compliance layer &amp; license-map geo-fencing</div>
+    </div>
+    <p style="margin-top:26px;font-weight:700;font-size:18px">One system, one price. Never a menu.</p>
+    <div style="margin-top:30px"><a class="btn" href="#book">Book a Call</a></div>
+  </div>
+</section>
+
+<!-- FOUNDING -->
+<section class="founding">
+  <div class="wrap">
+    <h2>We're taking three founding clients.</h2>
+    <p>We're early in publishing results in this space, and we'd rather say that plainly than dress up a testimonial.</p>
+    <p>Three founding clients at reduced pricing, in exchange for permission to publish the numbers — appointments booked, cost per funded loan, what worked and what didn't.</p>
+    <p style="margin-bottom:32px">You get specialist work at a discount and a partner with real skin in your outcome. We get the case study.</p>
+    <a class="btn" href="#book">Claim a Founding Seat</a>
+  </div>
+</section>
+
+<!-- FOUNDER -->
+<section>
+  <div class="wrap">
+    <div class="founder">
+      <div class="avatar">[ Founder photo ]</div>
+      <div>
+        <h2 style="font-size:30px">Meet the founder</h2>
+        <p>I'm Sabrena, and I run Safary Marketing out of Oklahoma City.</p>
+        <p>Most agencies that pitch lenders learned this industry from a blog post. I learned it from the room — I sit inside the OKC real estate investor community, the same rooms where your borrowers find deals, compare lenders, and complain about draws that took nine days instead of two.</p>
+        <p>My background is the unglamorous half of marketing: CRM architecture, automation, SMS compliance, funnel infrastructure. The plumbing. Which turns out to be exactly what this industry is missing — because the gap in private lending isn't creative. It's that nobody answers in five minutes, and nobody can tell you what a funded loan cost.</p>
+        <p style="margin-bottom:0"><strong>I built Safary around one product, for one kind of client, measured by one number.</strong></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DONT -->
+<section class="dont">
+  <div class="wrap">
+    <h2>What we don't do.</h2>
+    <p style="max-width:74ch">We don't sell leads. We don't do your social media, your website redesign, or your newsletter. We don't underwrite, make credit decisions, or issue proof-of-funds letters — those are yours. We don't guarantee funded loans, because we don't control your close rate or your capital ceiling. And we don't work with brand-new lenders, DSCR-only brokers with no borrower acquisition to build, or single-metro shops that can't absorb the media.</p>
+    <p class="kicker">We'd rather tell you no on a 30-minute call than take your money and disappoint you over 90 days.</p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="wrap">
+    <h2>Questions we get.</h2>
+    <details open>
+      <summary>How is this different from a lead vendor?</summary>
+      <p>We don't sell leads. We deliver booked appointments with borrowers who've confirmed a business-purpose deal, a property with price and ARV, a close date, and their experience tier — tracked through to funded loans. Lead vendors sell contact records, often to three to five buyers at once.</p>
+    </details>
+    <details>
+      <summary>What exactly counts as a pre-qualified appointment?</summary>
+      <p>It's written into the agreement, not left to interpretation: a booked appointment with a borrower who has self-reported a business-purpose, non-owner-occupied deal, a property with purchase price and rehab budget or ARV and a close date, a deal size above your minimum, deals completed in the last 24 months, and cash available to close. All self-reported. We screen — you underwrite.</p>
+    </details>
+    <details>
+      <summary>What if you send us borrowers who don't qualify?</summary>
+      <p>You set the bar at onboarding: minimum experience tier, minimum liquidity, loan floor, states. We screen every booking against it. If your underwriting declines someone, that still counts as delivered — underwriting is your decision and your business. Want the bar raised? We'll raise it, and volume drops proportionally. We tell you that in advance rather than argue about it later.</p>
+    </details>
+    <details>
+      <summary>How fast do we see appointments?</summary>
+      <p>Usually week two, from your existing database. Paid search goes live around day 14 to 21 and takes about a month to settle. The guarantee window is 90 days for exactly that reason.</p>
+    </details>
+    <details>
+      <summary>Who owns the ad account and the data?</summary>
+      <p>You do, both. The ad account is created in your name with your billing. Your contacts are yours — export on demand, and complete handover of every contact, conversation, and appointment record if we ever part ways. That's in the contract before anyone asks.</p>
+    </details>
+    <details>
+      <summary>Can this create compliance problems for us?</summary>
+      <p>It's built the other direction. Campaigns run only in states where you're licensed, listed as a contract exhibit and mirrored in every platform's geo settings. Investment-property language on every asset. No prohibited claims, no purchased or scraped lists. Any proof-of-funds letter is issued by you, under your name.</p>
+    </details>
+  </div>
+</section>
+
+<!-- BOOK -->
+<section class="book" id="book">
+  <div class="wrap">
+    <h2>One call tells you whether the math works.</h2>
+    <p>Thirty minutes. We'll ask what you fund, what a funded loan is worth to you, what happens to a web inquiry today, and what your repeat-borrower rate is. You'll leave knowing your own numbers better whether or not we work together.</p>
+    <div class="calbox">[ Embedded booking calendar — live on the page, not a redirect ]</div>
+    <div class="fields">Fields: Name · Company · Email · Phone · Loans funded per month · States you're active in · Current monthly ad spend</div>
+    <div class="fields" style="margin-top:10px">We'll confirm within the hour.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p><strong style="color:#A8B6C4">Safary Marketing</strong> is a marketing services provider. We are not a lender, mortgage broker, or licensed loan originator. We do not make credit decisions, underwrite loans, or issue funding commitments. All lending decisions, terms, and any proof-of-funds letters are issued solely by our clients.</p>
+    <p style="margin-top:12px">Services are provided for business-purpose, non-owner-occupied investment property lending only.</p>
+    <p style="margin-top:18px">© Safary Marketing · Privacy Policy · Terms</p>
+  </div>
+</footer>
+
+</body>
+</html>
