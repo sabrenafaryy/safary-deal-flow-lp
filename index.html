@@ -81,8 +81,10 @@
   .band p{color:#C7D2DC;max-width:52ch;margin:0 auto}
   .band .big{color:var(--gold);font-weight:800}
 
-  /* METHOD — vertical phase slider */
-  .dfm{margin-top:36px;display:grid;grid-template-columns:250px 1fr;gap:46px;align-items:start}
+  /* METHOD — vertical, scroll-driven phase slider */
+  .dfm{position:relative;margin-top:36px}          /* tall scroll track (height set by JS) */
+  .dfm-sticky{position:sticky;top:0;min-height:100vh;display:flex;align-items:center;padding:40px 0}
+  .dfm-inner{display:grid;grid-template-columns:250px 1fr;gap:46px;align-items:start;width:100%}
   .dfm-nav{position:relative;display:flex;flex-direction:column;padding-left:26px}
   .dfm-nav::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
     background:var(--line);border-radius:2px}
@@ -110,7 +112,8 @@
   .dfm-panel h3{font-size:24px;font-weight:800;margin-bottom:12px}
   .dfm-panel p{font-size:17px;color:var(--muted);max-width:62ch;margin:0}
   @media(max-width:720px){
-    .dfm{grid-template-columns:1fr;gap:28px}
+    .dfm-inner{grid-template-columns:1fr;gap:28px}
+    .dfm-sticky{min-height:88vh}
     .dfm-step{min-height:72px}
     .dfm-panel{padding:36px 26px}
     .dfm-num{font-size:40px}
@@ -258,6 +261,8 @@
     <p class="lede muted" style="max-width:62ch">One system, three phases. Built for lenders originating fix-and-flip, bridge, ground-up construction, and DSCR.</p>
 
     <div class="dfm" id="dfmSlider">
+     <div class="dfm-sticky">
+      <div class="dfm-inner">
       <div class="dfm-nav" role="tablist" aria-label="Deal Flow Method phases">
         <button class="dfm-step is-active" data-i="0" role="tab" aria-selected="true" aria-controls="dfm-panel-0" id="dfm-tab-0">
           <span class="dfm-step-n">PHASE 01</span>
@@ -291,6 +296,8 @@
           <p>Seasoning triggers fire the DSCR takeout against your own bridge book. Two originations per property. Near-zero acquisition cost on the second.</p>
         </div>
       </div>
+      </div>
+     </div>
     </div>
 
     <p class="kicker">Reactivate what you have. Capture what's searching. Compound what you fund.</p>
@@ -425,28 +432,22 @@
 
 <script>
 (function(){
-  var root = document.getElementById('dfmSlider');
+  var root = document.getElementById('dfmSlider');       // tall scroll track
   if(!root) return;
   var steps  = Array.prototype.slice.call(root.querySelectorAll('.dfm-step'));
   var panels = Array.prototype.slice.call(root.querySelectorAll('.dfm-panel'));
   var rail = root.querySelector('.dfm-rail');
   var fill = root.querySelector('.dfm-rail-fill');
-  var n = steps.length, cur = 0, timer = null;
-  var DWELL = 5200; // ms each phase stays before advancing
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var n = steps.length, cur = -1;
+  var VH_PER_PHASE = 78;   // vh of scrolling devoted to each phase
 
-  function runFill(){
-    if(!fill) return;
-    fill.style.transition = 'none';
-    fill.style.height = '0%';
-    void fill.offsetHeight;            // force reflow so the reset takes effect
-    if(!reduce){
-      fill.style.transition = 'height ' + DWELL + 'ms linear';
-      fill.style.height = '100%';
-    }
-  }
-  function show(i){
-    cur = (i + n) % n;
+  // Give the track enough height that each phase gets a stretch of scroll.
+  function sizeTrack(){ root.style.height = (n * VH_PER_PHASE) + 'vh'; }
+  sizeTrack();
+
+  function setActive(i){
+    if(i === cur) return;
+    cur = i;
     steps.forEach(function(s, idx){
       var active = idx === cur;
       s.classList.toggle('is-active', active);
@@ -454,34 +455,41 @@
     });
     panels.forEach(function(p, idx){ p.classList.toggle('is-active', idx === cur); });
     if(rail) rail.style.transform = 'translateY(' + (cur * 100) + '%)';
-    runFill();
-  }
-  function play(){ if(reduce) return; stop(); runFill(); timer = setInterval(function(){ show(cur + 1); }, DWELL); }
-  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
-  function freezeFill(){
-    if(!fill) return;
-    var h = getComputedStyle(fill).height;
-    fill.style.transition = 'none';
-    fill.style.height = h;
   }
 
+  // Map scroll position through the track -> active phase + within-phase fill.
+  function update(){
+    var vh = window.innerHeight;
+    var total = root.offsetHeight - vh;          // scrollable distance while pinned
+    var scrolled = Math.min(Math.max(-root.getBoundingClientRect().top, 0), total);
+    var progress = total > 0 ? scrolled / total : 0;    // 0..1 across the whole track
+    var pos = progress * n;                              // 0..n
+    var idx = Math.max(0, Math.min(Math.floor(pos), n - 1));
+    var frac = Math.max(0, Math.min(pos - idx, 1));      // progress within the phase
+    setActive(idx);
+    if(fill){ fill.style.height = (frac * 100) + '%'; }  // rail fills as you scroll
+  }
+
+  // Clicking a phase scrolls the page to that phase's slice of the track.
   steps.forEach(function(s){
-    s.addEventListener('click', function(){ show(parseInt(s.dataset.i, 10)); play(); });
+    s.addEventListener('click', function(){
+      var i = parseInt(s.dataset.i, 10);
+      var vh = window.innerHeight;
+      var total = root.offsetHeight - vh;
+      var target = root.getBoundingClientRect().top + window.scrollY + ((i + 0.5) / n) * total;
+      window.scrollTo({ top: target, behavior: 'smooth' });
+    });
   });
-  root.addEventListener('mouseenter', function(){ stop(); freezeFill(); });
-  root.addEventListener('mouseleave', function(){ play(); });
 
-  show(0);
-
-  // Only auto-play while the slider is on screen
-  if('IntersectionObserver' in window){
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(e){ if(e.isIntersecting){ play(); } else { stop(); } });
-    }, { threshold: 0.35 });
-    io.observe(root);
-  } else {
-    play();
+  var ticking = false;
+  function onScroll(){
+    if(ticking) return;
+    ticking = true;
+    window.requestAnimationFrame(function(){ update(); ticking = false; });
   }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', function(){ sizeTrack(); update(); });
+  update();
 })();
 </script>
 
