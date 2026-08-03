@@ -176,6 +176,32 @@
   .mathbox{background:var(--paper);border:1px solid var(--line);border-radius:8px;padding:28px;margin-top:34px}
   .mathbox p:last-child{margin-bottom:0}
 
+  /* ROI CALCULATOR */
+  .roi{margin:22px 0}
+  .roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  .roi-controls{display:flex;flex-direction:column;gap:20px}
+  .roi-flabel{display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:9px;font-size:14.5px;color:var(--muted);font-weight:600}
+  .roi-flabel b{color:var(--ink);font-size:17px;font-weight:800;font-variant-numeric:tabular-nums}
+  .roi input[type=range]{width:100%;accent-color:var(--gold);height:6px;cursor:pointer;margin:0}
+  .roi-results{background:var(--white);border:1px solid var(--line);border-radius:14px;
+    padding:24px;box-shadow:0 1px 2px rgba(15,23,41,.05)}
+  .roi-hero{text-align:center;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+  .roi-hero-n{font-size:46px;font-weight:900;color:var(--gold);letter-spacing:-.02em;
+    line-height:1;font-variant-numeric:tabular-nums}
+  .roi-hero-l{font-family:"DM Mono",ui-monospace,monospace;font-size:12px;color:var(--muted);
+    margin-top:9px;letter-spacing:.1em;text-transform:uppercase}
+  .roi-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .roi-tile{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .rt-n{font-size:22px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .rt-l{font-size:12.5px;color:var(--muted);margin-top:3px}
+  .roi-strip{margin-top:14px;padding:13px 16px;border-radius:10px;
+    background:rgba(13,129,211,.08);border:1px solid rgba(13,129,211,.22);
+    font-size:15px;font-weight:700;color:var(--ink);text-align:center}
+  .roi-strip b{color:var(--gold)}
+  .roi-note{font-size:13px;color:var(--muted);font-style:italic;margin:18px 0 0}
+  @media(max-width:640px){ .roi-grid{grid-template-columns:1fr;gap:26px} }
+
   /* INCLUDED */
   .inc{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:12px 34px;margin-top:24px}
   .inc div{display:flex;align-items:center;gap:13px;padding:14px 0;
@@ -390,8 +416,46 @@
 
     <div class="mathbox">
       <h3>Then the arithmetic on your side of the table.</h3>
-      <p>$5,000 a month in media buys roughly <strong>6–12 pre-qualified appointments</strong>, which converts to <strong>1–3 funded loans</strong> at typical close rates. A funded bridge deal puts $6,000–$14,000 on your books before spread.</p>
-      <p>Break-even sits between one and two funded loans a month, depending on your revenue per loan — which is exactly why we ask what yours is before quoting anything.</p>
+      <p class="muted" style="margin-bottom:4px">Move the sliders to your numbers. This is the same math we'd walk through on the call.</p>
+
+      <div class="roi" id="roiCalc">
+        <div class="roi-grid">
+          <div class="roi-controls">
+            <div class="roi-field">
+              <div class="roi-flabel"><span>Monthly ad spend</span><b data-out="o_spend">$5,000</b></div>
+              <input type="range" min="2000" max="20000" step="250" value="5000" data-k="spend" aria-label="Monthly ad spend">
+            </div>
+            <div class="roi-field">
+              <div class="roi-flabel"><span>Cost per booked appointment</span><b data-out="o_cpa">$550</b></div>
+              <input type="range" min="350" max="900" step="25" value="550" data-k="cpa" aria-label="Cost per booked appointment">
+            </div>
+            <div class="roi-field">
+              <div class="roi-flabel"><span>Close rate (appointment → funded loan)</span><b data-out="o_close">20%</b></div>
+              <input type="range" min="8" max="40" step="1" value="20" data-k="close" aria-label="Close rate">
+            </div>
+            <div class="roi-field">
+              <div class="roi-flabel"><span>Revenue per funded loan</span><b data-out="o_rpl">$8,000</b></div>
+              <input type="range" min="3000" max="20000" step="500" value="8000" data-k="rpl" aria-label="Revenue per funded loan">
+            </div>
+          </div>
+
+          <div class="roi-results">
+            <div class="roi-hero">
+              <div class="roi-hero-n" data-out="o_cpl">$2,750</div>
+              <div class="roi-hero-l">Cost per funded loan</div>
+            </div>
+            <div class="roi-tiles">
+              <div class="roi-tile"><div class="rt-n" data-out="o_appts">9</div><div class="rt-l">Booked appointments / mo</div></div>
+              <div class="roi-tile"><div class="rt-n" data-out="o_loans">1.8</div><div class="rt-l">Funded loans / mo</div></div>
+              <div class="roi-tile"><div class="rt-n" data-out="o_rev">$14,400</div><div class="rt-l">New revenue / mo</div></div>
+              <div class="roi-tile"><div class="rt-n" data-out="o_ret">2.9&times;</div><div class="rt-l">Estimated return</div></div>
+            </div>
+            <div class="roi-strip">≈ <b data-out="o_net">$9,400</b> in new revenue over spend, every month</div>
+          </div>
+        </div>
+        <p class="roi-note">Estimates using industry speed-to-lead and close-rate benchmarks — your real numbers set the plan, and nothing here is a guarantee of funded loans.</p>
+      </div>
+
       <p><strong>We report cost per funded loan.</strong> Not cost per lead. Not impressions. The number you actually manage to.</p>
     </div>
   </div>
@@ -615,6 +679,39 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', function(){ sizeTrack(); update(); });
   update();
+})();
+
+/* ROI calculator */
+(function(){
+  var root = document.getElementById('roiCalc');
+  if(!root) return;
+  var inputs = Array.prototype.slice.call(root.querySelectorAll('input[type=range]'));
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  function set(name, val){ var el = root.querySelector('[data-out="'+name+'"]'); if(el) el.textContent = val; }
+  function calc(){
+    var v = {};
+    inputs.forEach(function(i){ v[i.dataset.k] = parseFloat(i.value); });
+    var appts  = v.spend / v.cpa;
+    var loans  = appts * (v.close / 100);
+    var rev    = loans * v.rpl;
+    var cpl    = loans > 0 ? v.spend / loans : null;
+    var ret    = v.spend > 0 ? rev / v.spend : 0;
+    var net    = rev - v.spend;
+    // echo the slider values
+    set('o_spend', money(v.spend));
+    set('o_cpa',   money(v.cpa));
+    set('o_close', v.close + '%');
+    set('o_rpl',   money(v.rpl));
+    // results
+    set('o_cpl',   cpl == null ? '—' : money(cpl));
+    set('o_appts', Math.round(appts).toString());
+    set('o_loans', (loans < 10 ? loans.toFixed(1) : Math.round(loans).toString()));
+    set('o_rev',   money(rev));
+    set('o_ret',   ret.toFixed(1) + '×');
+    set('o_net',   money(net));
+  }
+  inputs.forEach(function(i){ i.addEventListener('input', calc); });
+  calc();
 })();
 
 /* Sticky-header shadow on scroll */
