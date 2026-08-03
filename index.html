@@ -123,49 +123,48 @@
   .band p{color:#C7D2DC;max-width:52ch;margin:0 auto}
   .band .big{color:var(--gold);font-weight:800}
 
-  /* METHOD — vertical, scroll-driven phase slider */
-  .method{padding:0}                                /* centering in the pinned block provides the breathing room */
-  .dfm{position:relative}                           /* tall scroll track (height set by JS) */
-  .dfm-sticky{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;
-    justify-content:center;gap:24px;padding:64px 0 28px}
-  .dfm-head{max-width:62ch}
+  /* METHOD — phases scroll naturally; a sticky rail rides along and tracks the active phase */
+  .dfm-head{max-width:62ch;margin-bottom:38px}
   .dfm-head h2{margin-bottom:10px}
   .dfm-head .lede{margin-bottom:0}
-  .dfm-inner{display:grid;grid-template-columns:250px 1fr;gap:46px;align-items:start;width:100%}
-  .dfm-nav{position:relative;display:flex;flex-direction:column;padding-left:26px}
+  .dfm{display:grid;grid-template-columns:250px 1fr;gap:56px;align-items:start}
+  /* left rail — sticks at viewport center and rides along as the cards scroll past */
+  .dfm-nav{position:sticky;top:calc(50vh - 120px);display:flex;flex-direction:column;padding-left:26px}
   .dfm-nav::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
     background:var(--line);border-radius:2px}
   .dfm-step{appearance:none;background:none;border:0;cursor:pointer;text-align:left;
-    font-family:inherit;padding:0 2px;min-height:84px;display:flex;flex-direction:column;
+    font-family:inherit;padding:0 2px;min-height:80px;display:flex;flex-direction:column;
     justify-content:center;gap:4px}
   .dfm-step-n{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--muted);transition:color .3s}
   .dfm-step-t{font-size:20px;font-weight:750;letter-spacing:-.01em;color:var(--ink);
-    opacity:.5;transition:opacity .3s}
+    opacity:.45;transition:opacity .3s}
   .dfm-step.is-active .dfm-step-n{color:var(--gold)}
   .dfm-step.is-active .dfm-step-t{opacity:1}
-  .dfm-step:hover .dfm-step-t{opacity:.8}
+  .dfm-step:hover .dfm-step-t{opacity:.75}
   .dfm-rail{position:absolute;left:0;top:0;width:3px;height:33.3333%;
     background:rgba(13,129,211,.18);border-radius:3px;transform:translateY(0);
-    transition:transform .45s cubic-bezier(.4,0,.2,1)}
+    transition:transform .5s cubic-bezier(.4,0,.2,1)}
   .dfm-rail-fill{display:block;width:100%;height:0;background:var(--gold);border-radius:3px}
-  .dfm-stage{position:relative;display:grid}
-  .dfm-panel{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(10px);
-    transition:opacity .4s ease,transform .4s ease;
-    border:1px solid var(--line);border-radius:16px;background:var(--white);
-    padding:44px 42px;text-align:left;box-shadow:0 1px 2px rgba(15,23,41,.05)}
-  .dfm-panel.is-active{opacity:1;visibility:visible;transform:none}
+  /* right column — phase cards in normal document flow (they scroll with the page) */
+  .dfm-track{display:flex;flex-direction:column;gap:26px}
+  .dfm-phase{border:1px solid var(--line);border-radius:16px;background:var(--white);
+    padding:44px 42px;box-shadow:0 1px 2px rgba(15,23,41,.05);
+    min-height:44vh;display:flex;flex-direction:column;justify-content:center;
+    opacity:.45;transition:opacity .45s ease,box-shadow .45s ease}
+  .dfm-phase.is-active{opacity:1;box-shadow:0 12px 34px rgba(15,23,41,.08)}
   .dfm-num{font-size:48px;font-weight:900;line-height:1;color:var(--gold);
     letter-spacing:-.02em;margin-bottom:12px}
-  .dfm-panel h3{font-size:24px;font-weight:800;margin-bottom:12px}
-  .dfm-panel p{font-size:17px;color:var(--muted);max-width:62ch;margin:0}
+  .dfm-phase h3{font-size:24px;font-weight:800;margin-bottom:12px}
+  .dfm-phase p{font-size:17px;color:var(--muted);max-width:62ch;margin:0}
+  .method .kicker{margin-top:40px;font-size:19px;font-weight:700}
   @media(max-width:720px){
-    .dfm-inner{grid-template-columns:1fr;gap:28px}
-    .dfm-sticky{min-height:100vh;justify-content:flex-start;gap:22px;padding:84px 0 32px}
-    .dfm-step{min-height:72px}
-    .dfm-panel{padding:36px 26px}
+    .dfm{grid-template-columns:1fr;gap:0}
+    .dfm-nav{display:none}                 /* on mobile each card carries its own number */
+    .dfm-track{gap:20px}
+    .dfm-phase{min-height:0;padding:34px 26px;opacity:1;justify-content:flex-start}
     .dfm-num{font-size:40px}
+    .dfm-head{margin-bottom:28px}
   }
-  .method .kicker{margin-top:0;font-size:19px;font-weight:700}
 
   /* DATA */
   .data{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -330,50 +329,48 @@
 <!-- METHOD -->
 <section class="method">
   <div class="wrap">
+    <div class="dfm-head">
+      <h2>The Deal Flow Method</h2>
+      <p class="lede muted">One system, three phases. Built for lenders originating fix-and-flip, bridge, ground-up construction, and DSCR.</p>
+    </div>
+
     <div class="dfm" id="dfmSlider">
-     <div class="dfm-sticky">
-      <div class="dfm-head">
-        <h2>The Deal Flow Method</h2>
-        <p class="lede muted">One system, three phases. Built for lenders originating fix-and-flip, bridge, ground-up construction, and DSCR.</p>
-      </div>
-      <div class="dfm-inner">
       <div class="dfm-nav" role="tablist" aria-label="Deal Flow Method phases">
-        <button class="dfm-step is-active" data-i="0" role="tab" aria-selected="true" aria-controls="dfm-panel-0" id="dfm-tab-0">
+        <button class="dfm-step is-active" data-i="0" role="tab" aria-selected="true" aria-controls="phase-0" id="dfm-tab-0">
           <span class="dfm-step-n">PHASE 01</span>
           <span class="dfm-step-t">Reactivate</span>
         </button>
-        <button class="dfm-step" data-i="1" role="tab" aria-selected="false" aria-controls="dfm-panel-1" id="dfm-tab-1">
+        <button class="dfm-step" data-i="1" role="tab" aria-selected="false" aria-controls="phase-1" id="dfm-tab-1">
           <span class="dfm-step-n">PHASE 02</span>
           <span class="dfm-step-t">Capture</span>
         </button>
-        <button class="dfm-step" data-i="2" role="tab" aria-selected="false" aria-controls="dfm-panel-2" id="dfm-tab-2">
+        <button class="dfm-step" data-i="2" role="tab" aria-selected="false" aria-controls="phase-2" id="dfm-tab-2">
           <span class="dfm-step-n">PHASE 03</span>
           <span class="dfm-step-t">Compound</span>
         </button>
         <div class="dfm-rail" aria-hidden="true"><span class="dfm-rail-fill"></span></div>
       </div>
 
-      <div class="dfm-stage">
-        <div class="dfm-panel is-active" role="tabpanel" id="dfm-panel-0" aria-labelledby="dfm-tab-0">
+      <div class="dfm-track">
+        <article class="dfm-phase is-active" data-i="0" id="phase-0" role="tabpanel" aria-labelledby="dfm-tab-0">
           <div class="dfm-num">01</div>
           <h3>Reactivate</h3>
           <p>Your past borrowers, dead scenarios, and unfunded term sheets. The cheapest deal flow you own and the fastest to produce — this is usually where your first appointments come from, before a single ad runs.</p>
-        </div>
-        <div class="dfm-panel" role="tabpanel" id="dfm-panel-1" aria-labelledby="dfm-tab-1">
+        </article>
+        <article class="dfm-phase" data-i="1" id="phase-1" role="tabpanel" aria-labelledby="dfm-tab-1">
           <div class="dfm-num">02</div>
           <h3>Capture</h3>
           <p>Geo-concentrated search in the states you're licensed in, a borrower tier assessment as the front door, and a five-minute response that qualifies and books — before you ever see a raw lead.</p>
-        </div>
-        <div class="dfm-panel" role="tabpanel" id="dfm-panel-2" aria-labelledby="dfm-tab-2">
+        </article>
+        <article class="dfm-phase" data-i="2" id="phase-2" role="tabpanel" aria-labelledby="dfm-tab-2">
           <div class="dfm-num">03</div>
           <h3>Compound</h3>
           <p>Seasoning triggers fire the DSCR takeout against your own bridge book. Two originations per property. Near-zero acquisition cost on the second.</p>
-        </div>
+        </article>
       </div>
-      </div>
-      <p class="kicker">Reactivate what you have. Capture what's searching. Compound what you fund.</p>
-     </div>
     </div>
+
+    <p class="kicker">Reactivate what you have. Capture what's searching. Compound what you fund.</p>
   </div>
 </section>
 
@@ -558,18 +555,14 @@
 
 <script>
 (function(){
-  var root = document.getElementById('dfmSlider');       // tall scroll track
+  var root = document.getElementById('dfmSlider');
   if(!root) return;
   var steps  = Array.prototype.slice.call(root.querySelectorAll('.dfm-step'));
-  var panels = Array.prototype.slice.call(root.querySelectorAll('.dfm-panel'));
+  var phases = Array.prototype.slice.call(root.querySelectorAll('.dfm-phase'));
   var rail = root.querySelector('.dfm-rail');
   var fill = root.querySelector('.dfm-rail-fill');
-  var n = steps.length, cur = -1;
-  var VH_PER_PHASE = 58;   // vh of scrolling devoted to each phase
-
-  // Give the track enough height that each phase gets a stretch of scroll.
-  function sizeTrack(){ root.style.height = (n * VH_PER_PHASE) + 'vh'; }
-  sizeTrack();
+  var cur = -1;
+  function clamp(v,a,b){ return Math.max(a, Math.min(v, b)); }
 
   function setActive(i){
     if(i === cur) return;
@@ -579,30 +572,32 @@
       s.classList.toggle('is-active', active);
       s.setAttribute('aria-selected', active ? 'true' : 'false');
     });
-    panels.forEach(function(p, idx){ p.classList.toggle('is-active', idx === cur); });
-    if(rail) rail.style.transform = 'translateY(' + (cur * 100) + '%)';
+    phases.forEach(function(p, idx){ p.classList.toggle('is-active', idx === cur); });
   }
 
-  // Map scroll position through the track -> active phase + within-phase fill.
+  // The active phase is whichever card sits closest to the viewport's vertical center.
   function update(){
-    var vh = window.innerHeight;
-    var total = root.offsetHeight - vh;          // scrollable distance while pinned
-    var scrolled = Math.min(Math.max(-root.getBoundingClientRect().top, 0), total);
-    var progress = total > 0 ? scrolled / total : 0;    // 0..1 across the whole track
-    var pos = progress * n;                              // 0..n
-    var idx = Math.max(0, Math.min(Math.floor(pos), n - 1));
-    var frac = Math.max(0, Math.min(pos - idx, 1));      // progress within the phase
-    setActive(idx);
-    if(fill){ fill.style.height = (frac * 100) + '%'; }  // rail fills as you scroll
+    var center = window.innerHeight * 0.5;
+    var active = 0, best = Infinity, activeRect = null;
+    phases.forEach(function(p, i){
+      var r = p.getBoundingClientRect();
+      var d = Math.abs((r.top + r.bottom) / 2 - center);
+      if(d < best){ best = d; active = i; activeRect = r; }
+    });
+    setActive(active);
+    if(rail) rail.style.transform = 'translateY(' + (active * 100) + '%)';
+    if(fill && activeRect){
+      var frac = clamp((center - activeRect.top) / activeRect.height, 0, 1);
+      fill.style.height = (frac * 100) + '%';
+    }
   }
 
-  // Clicking a phase scrolls the page to that phase's slice of the track.
+  // Clicking a phase in the rail scrolls that card to the viewport center.
   steps.forEach(function(s){
     s.addEventListener('click', function(){
       var i = parseInt(s.dataset.i, 10);
-      var vh = window.innerHeight;
-      var total = root.offsetHeight - vh;
-      var target = root.getBoundingClientRect().top + window.scrollY + ((i + 0.5) / n) * total;
+      var r = phases[i].getBoundingClientRect();
+      var target = r.top + window.scrollY - (window.innerHeight / 2 - r.height / 2);
       window.scrollTo({ top: target, behavior: 'smooth' });
     });
   });
@@ -614,7 +609,7 @@
     window.requestAnimationFrame(function(){ update(); ticking = false; });
   }
   window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', function(){ sizeTrack(); update(); });
+  window.addEventListener('resize', update);
   update();
 })();
 
