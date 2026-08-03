@@ -81,14 +81,41 @@
   .band p{color:#C7D2DC;max-width:52ch;margin:0 auto}
   .band .big{color:var(--gold);font-weight:800}
 
-  /* METHOD */
-  .method .phase{
-    display:grid;grid-template-columns:120px 1fr;gap:28px;
-    padding:30px 0;border-top:1px solid var(--line);
+  /* METHOD — vertical phase slider */
+  .dfm{margin-top:36px;display:grid;grid-template-columns:250px 1fr;gap:46px;align-items:start}
+  .dfm-nav{position:relative;display:flex;flex-direction:column;padding-left:26px}
+  .dfm-nav::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
+    background:var(--line);border-radius:2px}
+  .dfm-step{appearance:none;background:none;border:0;cursor:pointer;text-align:left;
+    font-family:inherit;padding:0 2px;min-height:84px;display:flex;flex-direction:column;
+    justify-content:center;gap:4px}
+  .dfm-step-n{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--muted);transition:color .3s}
+  .dfm-step-t{font-size:20px;font-weight:750;letter-spacing:-.01em;color:var(--ink);
+    opacity:.5;transition:opacity .3s}
+  .dfm-step.is-active .dfm-step-n{color:var(--gold)}
+  .dfm-step.is-active .dfm-step-t{opacity:1}
+  .dfm-step:hover .dfm-step-t{opacity:.8}
+  .dfm-rail{position:absolute;left:0;top:0;width:3px;height:33.3333%;
+    background:rgba(13,129,211,.18);border-radius:3px;transform:translateY(0);
+    transition:transform .45s cubic-bezier(.4,0,.2,1)}
+  .dfm-rail-fill{display:block;width:100%;height:0;background:var(--gold);border-radius:3px}
+  .dfm-stage{position:relative;display:grid}
+  .dfm-panel{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(10px);
+    transition:opacity .4s ease,transform .4s ease;
+    border:1px solid var(--line);border-radius:16px;background:var(--white);
+    padding:44px 42px;text-align:left;box-shadow:0 1px 2px rgba(15,23,41,.05)}
+  .dfm-panel.is-active{opacity:1;visibility:visible;transform:none}
+  .dfm-num{font-size:48px;font-weight:900;line-height:1;color:var(--gold);
+    letter-spacing:-.02em;margin-bottom:12px}
+  .dfm-panel h3{font-size:24px;font-weight:800;margin-bottom:12px}
+  .dfm-panel p{font-size:17px;color:var(--muted);max-width:62ch;margin:0}
+  @media(max-width:720px){
+    .dfm{grid-template-columns:1fr;gap:28px}
+    .dfm-step{min-height:72px}
+    .dfm-panel{padding:36px 26px}
+    .dfm-num{font-size:40px}
   }
-  .method .phase:last-of-type{border-bottom:1px solid var(--line)}
-  .pnum{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--gold);padding-top:4px}
-  .method .kicker{margin-top:30px;font-size:19px;font-weight:700}
+  .method .kicker{margin-top:34px;font-size:19px;font-weight:700}
 
   /* DATA */
   .data{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -230,25 +257,39 @@
     <h2>The Deal Flow Method</h2>
     <p class="lede muted" style="max-width:62ch">One system, three phases. Built for lenders originating fix-and-flip, bridge, ground-up construction, and DSCR.</p>
 
-    <div class="phase">
-      <div class="pnum">PHASE 01</div>
-      <div>
-        <h3>Reactivate</h3>
-        <p class="muted" style="margin:0">Your past borrowers, dead scenarios, and unfunded term sheets. The cheapest deal flow you own and the fastest to produce — this is usually where your first appointments come from, before a single ad runs.</p>
+    <div class="dfm" id="dfmSlider">
+      <div class="dfm-nav" role="tablist" aria-label="Deal Flow Method phases">
+        <button class="dfm-step is-active" data-i="0" role="tab" aria-selected="true" aria-controls="dfm-panel-0" id="dfm-tab-0">
+          <span class="dfm-step-n">PHASE 01</span>
+          <span class="dfm-step-t">Reactivate</span>
+        </button>
+        <button class="dfm-step" data-i="1" role="tab" aria-selected="false" aria-controls="dfm-panel-1" id="dfm-tab-1">
+          <span class="dfm-step-n">PHASE 02</span>
+          <span class="dfm-step-t">Capture</span>
+        </button>
+        <button class="dfm-step" data-i="2" role="tab" aria-selected="false" aria-controls="dfm-panel-2" id="dfm-tab-2">
+          <span class="dfm-step-n">PHASE 03</span>
+          <span class="dfm-step-t">Compound</span>
+        </button>
+        <div class="dfm-rail" aria-hidden="true"><span class="dfm-rail-fill"></span></div>
       </div>
-    </div>
-    <div class="phase">
-      <div class="pnum">PHASE 02</div>
-      <div>
-        <h3>Capture</h3>
-        <p class="muted" style="margin:0">Geo-concentrated search in the states you're licensed in, a borrower tier assessment as the front door, and a five-minute response that qualifies and books — before you ever see a raw lead.</p>
-      </div>
-    </div>
-    <div class="phase">
-      <div class="pnum">PHASE 03</div>
-      <div>
-        <h3>Compound</h3>
-        <p class="muted" style="margin:0">Seasoning triggers fire the DSCR takeout against your own bridge book. Two originations per property. Near-zero acquisition cost on the second.</p>
+
+      <div class="dfm-stage">
+        <div class="dfm-panel is-active" role="tabpanel" id="dfm-panel-0" aria-labelledby="dfm-tab-0">
+          <div class="dfm-num">01</div>
+          <h3>Reactivate</h3>
+          <p>Your past borrowers, dead scenarios, and unfunded term sheets. The cheapest deal flow you own and the fastest to produce — this is usually where your first appointments come from, before a single ad runs.</p>
+        </div>
+        <div class="dfm-panel" role="tabpanel" id="dfm-panel-1" aria-labelledby="dfm-tab-1">
+          <div class="dfm-num">02</div>
+          <h3>Capture</h3>
+          <p>Geo-concentrated search in the states you're licensed in, a borrower tier assessment as the front door, and a five-minute response that qualifies and books — before you ever see a raw lead.</p>
+        </div>
+        <div class="dfm-panel" role="tabpanel" id="dfm-panel-2" aria-labelledby="dfm-tab-2">
+          <div class="dfm-num">03</div>
+          <h3>Compound</h3>
+          <p>Seasoning triggers fire the DSCR takeout against your own bridge book. Two originations per property. Near-zero acquisition cost on the second.</p>
+        </div>
       </div>
     </div>
 
@@ -381,6 +422,68 @@
     <p style="margin-top:18px">© Safary Marketing · Privacy Policy · Terms</p>
   </div>
 </footer>
+
+<script>
+(function(){
+  var root = document.getElementById('dfmSlider');
+  if(!root) return;
+  var steps  = Array.prototype.slice.call(root.querySelectorAll('.dfm-step'));
+  var panels = Array.prototype.slice.call(root.querySelectorAll('.dfm-panel'));
+  var rail = root.querySelector('.dfm-rail');
+  var fill = root.querySelector('.dfm-rail-fill');
+  var n = steps.length, cur = 0, timer = null;
+  var DWELL = 5200; // ms each phase stays before advancing
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function runFill(){
+    if(!fill) return;
+    fill.style.transition = 'none';
+    fill.style.height = '0%';
+    void fill.offsetHeight;            // force reflow so the reset takes effect
+    if(!reduce){
+      fill.style.transition = 'height ' + DWELL + 'ms linear';
+      fill.style.height = '100%';
+    }
+  }
+  function show(i){
+    cur = (i + n) % n;
+    steps.forEach(function(s, idx){
+      var active = idx === cur;
+      s.classList.toggle('is-active', active);
+      s.setAttribute('aria-selected', active ? 'true' : 'false');
+    });
+    panels.forEach(function(p, idx){ p.classList.toggle('is-active', idx === cur); });
+    if(rail) rail.style.transform = 'translateY(' + (cur * 100) + '%)';
+    runFill();
+  }
+  function play(){ if(reduce) return; stop(); runFill(); timer = setInterval(function(){ show(cur + 1); }, DWELL); }
+  function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+  function freezeFill(){
+    if(!fill) return;
+    var h = getComputedStyle(fill).height;
+    fill.style.transition = 'none';
+    fill.style.height = h;
+  }
+
+  steps.forEach(function(s){
+    s.addEventListener('click', function(){ show(parseInt(s.dataset.i, 10)); play(); });
+  });
+  root.addEventListener('mouseenter', function(){ stop(); freezeFill(); });
+  root.addEventListener('mouseleave', function(){ play(); });
+
+  show(0);
+
+  // Only auto-play while the slider is on screen
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ play(); } else { stop(); } });
+    }, { threshold: 0.35 });
+    io.observe(root);
+  } else {
+    play();
+  }
+})();
+</script>
 
 </body>
 </html>
