@@ -6,10 +6,10 @@
     <circle cx="120" cy="540" r="140"/>
     <circle cx="980" cy="560" r="60"/>
   </g>
-  <text x="80" y="120" font-family="DM Mono, monospace" font-size="22" letter-spacing="4" fill="#0D81D3">SAFARY MARKETING</text>
-  <text x="78" y="270" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="-2" fill="#FFFFFF">We build Deal Flow</text>
-  <text x="78" y="352" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="-2" fill="#FFFFFF">Engines for private</text>
-  <text x="78" y="434" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="800" letter-spacing="-2" fill="#FFFFFF">&amp; investor lenders.</text>
-  <text x="80" y="520" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="500" fill="#C7D2DC">6–12 pre-qualified investor appointments a month —</text>
-  <text x="80" y="562" font-family="Inter, Arial, sans-serif" font-size="30" font-weight="700" fill="#0D81D3">booked on your calendar, or you don't pay.</text>
+  <text x="80" y="118" font-family="DM Mono, monospace" font-size="22" letter-spacing="4" fill="#0D81D3">SAFARY MARKETING</text>
+  <text x="78" y="255" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="800" letter-spacing="-2" fill="#FFFFFF">6–12 pre-qualified investor</text>
+  <text x="78" y="331" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="800" letter-spacing="-2" fill="#FFFFFF">appointments a month —</text>
+  <text x="78" y="407" font-family="Inter, Arial, sans-serif" font-size="64" font-weight="800" letter-spacing="-2" fill="#0D81D3">or you don't pay.</text>
+  <text x="80" y="500" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="500" fill="#C7D2DC">Borrower acquisition systems for private &amp; investor lenders.</text>
+  <text x="80" y="544" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="500" fill="#C7D2DC">Booked on your calendar, with the deal on the sheet.</text>
 </svg>
