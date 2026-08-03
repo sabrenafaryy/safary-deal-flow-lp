@@ -123,8 +123,13 @@
   .band .big{color:var(--gold);font-weight:800}
 
   /* METHOD — vertical, scroll-driven phase slider */
-  .dfm{position:relative;margin-top:36px}          /* tall scroll track (height set by JS) */
-  .dfm-sticky{position:sticky;top:0;min-height:100vh;display:flex;align-items:center;padding:40px 0}
+  .method{padding:0}                                /* centering in the pinned block provides the breathing room */
+  .dfm{position:relative}                           /* tall scroll track (height set by JS) */
+  .dfm-sticky{position:sticky;top:0;min-height:100vh;display:flex;flex-direction:column;
+    justify-content:center;gap:24px;padding:64px 0 28px}
+  .dfm-head{max-width:62ch}
+  .dfm-head h2{margin-bottom:10px}
+  .dfm-head .lede{margin-bottom:0}
   .dfm-inner{display:grid;grid-template-columns:250px 1fr;gap:46px;align-items:start;width:100%}
   .dfm-nav{position:relative;display:flex;flex-direction:column;padding-left:26px}
   .dfm-nav::before{content:"";position:absolute;left:0;top:0;bottom:0;width:2px;
@@ -154,12 +159,12 @@
   .dfm-panel p{font-size:17px;color:var(--muted);max-width:62ch;margin:0}
   @media(max-width:720px){
     .dfm-inner{grid-template-columns:1fr;gap:28px}
-    .dfm-sticky{min-height:88vh}
+    .dfm-sticky{min-height:100vh;justify-content:flex-start;gap:22px;padding:84px 0 32px}
     .dfm-step{min-height:72px}
     .dfm-panel{padding:36px 26px}
     .dfm-num{font-size:40px}
   }
-  .method .kicker{margin-top:34px;font-size:19px;font-weight:700}
+  .method .kicker{margin-top:0;font-size:19px;font-weight:700}
 
   /* DATA */
   .data{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -324,11 +329,12 @@
 <!-- METHOD -->
 <section class="method">
   <div class="wrap">
-    <h2>The Deal Flow Method</h2>
-    <p class="lede muted" style="max-width:62ch">One system, three phases. Built for lenders originating fix-and-flip, bridge, ground-up construction, and DSCR.</p>
-
     <div class="dfm" id="dfmSlider">
      <div class="dfm-sticky">
+      <div class="dfm-head">
+        <h2>The Deal Flow Method</h2>
+        <p class="lede muted">One system, three phases. Built for lenders originating fix-and-flip, bridge, ground-up construction, and DSCR.</p>
+      </div>
       <div class="dfm-inner">
       <div class="dfm-nav" role="tablist" aria-label="Deal Flow Method phases">
         <button class="dfm-step is-active" data-i="0" role="tab" aria-selected="true" aria-controls="dfm-panel-0" id="dfm-tab-0">
@@ -364,10 +370,9 @@
         </div>
       </div>
       </div>
+      <p class="kicker">Reactivate what you have. Capture what's searching. Compound what you fund.</p>
      </div>
     </div>
-
-    <p class="kicker">Reactivate what you have. Capture what's searching. Compound what you fund.</p>
   </div>
 </section>
 
@@ -416,7 +421,7 @@
   <div class="wrap">
     <h2>We're taking three <span class="accent">founding clients.</span></h2>
     <p>We're early in publishing results in this space, and we'd rather say that plainly than dress up a testimonial.</p>
-    <p>Three founding clients at reduced pricing, in exchange for permission to publish the numbers — appointments booked, cost per funded loan, what worked and what didn't.</p>
+    <p>Three founding clients at a founding rate — well below what this system will cost once results are published — in exchange for permission to publish the numbers: appointments booked, cost per funded loan, what worked and what didn't.</p>
     <p style="margin-bottom:32px">You get specialist work at a discount and a partner with real skin in your outcome. We get the case study.</p>
     <a class="btn" href="#book">Claim a Founding Seat</a>
   </div>
@@ -559,7 +564,7 @@
   var rail = root.querySelector('.dfm-rail');
   var fill = root.querySelector('.dfm-rail-fill');
   var n = steps.length, cur = -1;
-  var VH_PER_PHASE = 78;   // vh of scrolling devoted to each phase
+  var VH_PER_PHASE = 58;   // vh of scrolling devoted to each phase
 
   // Give the track enough height that each phase gets a stretch of scroll.
   function sizeTrack(){ root.style.height = (n * VH_PER_PHASE) + 'vh'; }
