@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Deal Flow ROI Calculator — Safary Marketing (internal)</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1729'/%3E%3Ctext x='32' y='44' font-family='Inter,Arial,sans-serif' font-size='38' font-weight='800' fill='%230D81D3' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1729;--gold:#0D81D3;--gold-dark:#0B6FB8;
+    --paper:#F6F9FC;--white:#fff;--muted:#52657A;--line:#E3E2DE;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    color:var(--ink);background:var(--paper);line-height:1.55;-webkit-font-smoothing:antialiased;
+    padding:48px 20px}
+  .wrap{max-width:920px;margin:0 auto}
+  .eyebrow{display:inline-block;font-family:"DM Mono",ui-monospace,monospace;font-size:12px;
+    letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:12px;
+    padding:6px 13px;border:1px solid var(--line);border-radius:9999px;background:var(--white)}
+  h1{font-size:clamp(26px,4vw,34px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px}
+  .lede{color:var(--muted);font-size:17px;margin-bottom:34px;max-width:60ch}
+
+  /* ROI CALCULATOR */
+  .roi-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+  .roi-controls{display:flex;flex-direction:column;gap:20px}
+  .roi-flabel{display:flex;justify-content:space-between;align-items:baseline;
+    margin-bottom:9px;font-size:14.5px;color:var(--muted);font-weight:600}
+  .roi-flabel b{color:var(--ink);font-size:17px;font-weight:800;font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;accent-color:var(--gold);height:6px;cursor:pointer;margin:0}
+  .roi-results{background:var(--white);border:1px solid var(--line);border-radius:14px;
+    padding:24px;box-shadow:0 1px 3px rgba(15,23,41,.05)}
+  .roi-hero{text-align:center;padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line)}
+  .roi-hero-n{font-size:46px;font-weight:900;color:var(--gold);letter-spacing:-.02em;
+    line-height:1;font-variant-numeric:tabular-nums}
+  .roi-hero-l{font-family:"DM Mono",ui-monospace,monospace;font-size:12px;color:var(--muted);
+    margin-top:9px;letter-spacing:.1em;text-transform:uppercase}
+  .roi-tiles{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .roi-tile{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+  .rt-n{font-size:22px;font-weight:800;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+  .rt-l{font-size:12.5px;color:var(--muted);margin-top:3px}
+  .roi-strip{margin-top:14px;padding:13px 16px;border-radius:10px;
+    background:rgba(13,129,211,.08);border:1px solid rgba(13,129,211,.22);
+    font-size:15px;font-weight:700;color:var(--ink);text-align:center}
+  .roi-strip b{color:var(--gold)}
+  .roi-note{font-size:13px;color:var(--muted);font-style:italic;margin:22px 0 0;max-width:80ch}
+  @media(max-width:640px){ .roi-grid{grid-template-columns:1fr;gap:26px} }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="eyebrow">Safary Marketing · Internal</div>
+  <h1>Deal Flow ROI Calculator</h1>
+  <p class="lede">For use live on fit calls. Move the sliders to the lender's own numbers — cost per funded loan is the number we manage to.</p>
+
+  <div id="roiCalc">
+    <div class="roi-grid">
+      <div class="roi-controls">
+        <div class="roi-field">
+          <div class="roi-flabel"><span>Monthly ad spend</span><b data-out="o_spend">$5,000</b></div>
+          <input type="range" min="2000" max="20000" step="250" value="5000" data-k="spend" aria-label="Monthly ad spend">
+        </div>
+        <div class="roi-field">
+          <div class="roi-flabel"><span>Cost per booked appointment</span><b data-out="o_cpa">$550</b></div>
+          <input type="range" min="350" max="900" step="25" value="550" data-k="cpa" aria-label="Cost per booked appointment">
+        </div>
+        <div class="roi-field">
+          <div class="roi-flabel"><span>Close rate (appointment → funded loan)</span><b data-out="o_close">20%</b></div>
+          <input type="range" min="8" max="40" step="1" value="20" data-k="close" aria-label="Close rate">
+        </div>
+        <div class="roi-field">
+          <div class="roi-flabel"><span>Revenue per funded loan</span><b data-out="o_rpl">$8,000</b></div>
+          <input type="range" min="3000" max="20000" step="500" value="8000" data-k="rpl" aria-label="Revenue per funded loan">
+        </div>
+      </div>
+
+      <div class="roi-results">
+        <div class="roi-hero">
+          <div class="roi-hero-n" data-out="o_cpl">$2,750</div>
+          <div class="roi-hero-l">Cost per funded loan</div>
+        </div>
+        <div class="roi-tiles">
+          <div class="roi-tile"><div class="rt-n" data-out="o_appts">9</div><div class="rt-l">Booked appointments / mo</div></div>
+          <div class="roi-tile"><div class="rt-n" data-out="o_loans">1.8</div><div class="rt-l">Funded loans / mo</div></div>
+          <div class="roi-tile"><div class="rt-n" data-out="o_rev">$14,400</div><div class="rt-l">New revenue / mo</div></div>
+          <div class="roi-tile"><div class="rt-n" data-out="o_ret">2.9&times;</div><div class="rt-l">Estimated return</div></div>
+        </div>
+        <div class="roi-strip">≈ <b data-out="o_net">$9,400</b> in new revenue over spend, every month</div>
+      </div>
+    </div>
+    <p class="roi-note">Estimates using industry speed-to-lead and close-rate benchmarks — the lender's real numbers set the plan, and nothing here is a guarantee of funded loans. "Return" is revenue-to-ad-spend, before the management fee, cost of capital, and operating costs.</p>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root = document.getElementById('roiCalc');
+  if(!root) return;
+  var inputs = Array.prototype.slice.call(root.querySelectorAll('input[type=range]'));
+  function money(n){ return '$' + Math.round(n).toLocaleString('en-US'); }
+  function set(name, val){ var el = root.querySelector('[data-out="'+name+'"]'); if(el) el.textContent = val; }
+  function calc(){
+    var v = {};
+    inputs.forEach(function(i){ v[i.dataset.k] = parseFloat(i.value); });
+    var appts  = v.spend / v.cpa;
+    var loans  = appts * (v.close / 100);
+    var rev    = loans * v.rpl;
+    var cpl    = loans > 0 ? v.spend / loans : null;
+    var ret    = v.spend > 0 ? rev / v.spend : 0;
+    var net    = rev - v.spend;
+    set('o_spend', money(v.spend));
+    set('o_cpa',   money(v.cpa));
+    set('o_close', v.close + '%');
+    set('o_rpl',   money(v.rpl));
+    set('o_cpl',   cpl == null ? '—' : money(cpl));
+    set('o_appts', Math.round(appts).toString());
+    set('o_loans', (loans < 10 ? loans.toFixed(1) : Math.round(loans).toString()));
+    set('o_rev',   money(rev));
+    set('o_ret',   ret.toFixed(1) + '×');
+    set('o_net',   money(net));
+  }
+  inputs.forEach(function(i){ i.addEventListener('input', calc); });
+  calc();
+})();
+</script>
+</body>
+</html>
