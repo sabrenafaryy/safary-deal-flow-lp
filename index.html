@@ -6,7 +6,7 @@
 <title>Safary Marketing — Deal Flow Engine for Private &amp; Investor Lenders</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0F1729;
@@ -32,26 +32,59 @@
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
   section{padding:84px 0}
+  /* mono "technical label" — eyebrows, phase/layer numbers */
+  .eyebrow,.dfm-step-n,.layer .ln,.pnum{font-family:"DM Mono",ui-monospace,SFMono-Regular,Menlo,monospace}
   .eyebrow{
-    font-size:12px;letter-spacing:.16em;text-transform:uppercase;
-    font-weight:700;color:var(--gold);margin-bottom:22px;
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:500;
+    color:var(--gold);margin-bottom:24px;
+    padding:8px 15px;border:1px solid var(--line);border-radius:9999px;
+    background:var(--white);box-shadow:0 1px 2px rgba(15,23,41,.05);
   }
+  .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;
+    background:var(--gold);box-shadow:0 0 0 3px rgba(13,129,211,.18)}
+  .hero .eyebrow{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#CFE3F5}
+  /* editorial italic-serif accent for key phrases in headlines */
+  .accent{font-family:"Instrument Serif",Georgia,serif;font-style:italic;
+    font-weight:400;color:var(--gold);letter-spacing:.01em}
   h1{font-size:clamp(32px,5.2vw,58px);line-height:1.08;letter-spacing:-.02em;font-weight:800}
+  h1 .accent{font-size:1.06em;line-height:.9}
+  h2 .accent{font-size:1.12em;line-height:.9}
   h2{font-size:clamp(25px,3.4vw,38px);line-height:1.15;letter-spacing:-.015em;font-weight:800;margin-bottom:20px}
   h3{font-size:19px;font-weight:750;margin-bottom:9px;letter-spacing:-.01em}
   p{font-size:17px;color:var(--ink);margin-bottom:16px}
   .lede{font-size:20px;line-height:1.5}
   .muted{color:var(--muted)}
   .btn{
-    display:inline-block;background:var(--gold);color:#fff;
-    font-weight:700;font-size:17px;letter-spacing:-.01em;
-    padding:17px 38px;border-radius:6px;text-decoration:none;
+    display:inline-flex;align-items:center;gap:9px;
+    background:var(--gold);color:#fff;
+    font-weight:600;font-size:17px;letter-spacing:-.01em;
+    padding:16px 32px;border-radius:9999px;text-decoration:none;
     border:1px solid var(--gold);
-    box-shadow:0 1px 2px rgba(15,23,41,.10);
-    transition:background .15s ease,border-color .15s ease;
+    box-shadow:0 6px 22px rgba(13,129,211,.32);
+    transition:transform .16s ease,box-shadow .2s ease,background .16s ease,border-color .16s ease;
   }
-  .btn:hover{background:var(--gold-dark);border-color:var(--gold-dark)}
+  .btn::after{content:"\2192";font-size:1.05em;line-height:1;transition:transform .2s ease}
+  .btn:hover{background:var(--gold-dark);border-color:var(--gold-dark);
+    transform:translateY(-2px);box-shadow:0 12px 30px rgba(13,129,211,.42)}
+  .btn:hover::after{transform:translateX(3px)}
   .btn-micro{font-size:14px;color:var(--muted);margin-top:14px}
+
+  /* STICKY HEADER */
+  .site-nav{position:sticky;top:0;z-index:50;background:rgba(246,249,252,.82);
+    backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);
+    border-bottom:1px solid transparent;transition:box-shadow .2s ease,border-color .2s ease}
+  .site-nav.scrolled{border-color:var(--line);box-shadow:0 2px 18px rgba(15,23,41,.06)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
+  .brand span{color:var(--gold);margin-left:5px;font-weight:700}
+  .btn-sm{padding:10px 20px;font-size:15px;box-shadow:0 4px 16px rgba(13,129,211,.28)}
+  @media(max-width:520px){ .brand span{display:none} }
+
+  /* SCROLL-REVEAL */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+  @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
   /* HERO */
   .hero{background:var(--ink);color:var(--white);padding:96px 0 88px}
@@ -71,7 +104,15 @@
 
   /* PAIN */
   .pain{border-bottom:1px solid var(--line)}
-  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:34px;margin-top:14px}
+  .pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;margin-top:26px}
+  .pgrid > div{background:var(--white);border:1px solid var(--line);border-radius:14px;
+    padding:26px 24px;box-shadow:0 1px 2px rgba(15,23,41,.04);
+    transition:transform .18s ease,box-shadow .18s ease}
+  .pgrid > div:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,23,41,.09)}
+  .pico{width:42px;height:42px;border-radius:11px;background:rgba(13,129,211,.10);
+    display:flex;align-items:center;justify-content:center;color:var(--gold);margin-bottom:16px}
+  .pico svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;
+    stroke-linecap:round;stroke-linejoin:round}
   .pgrid h3{color:var(--ink)}
   .pgrid p{font-size:16px;color:var(--muted);margin:0}
 
@@ -131,8 +172,11 @@
   .mathbox p:last-child{margin-bottom:0}
 
   /* INCLUDED */
-  .inc{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:12px 34px;margin-top:8px}
-  .inc div{padding:13px 0;border-bottom:1px solid var(--line);font-size:16.5px;font-weight:600}
+  .inc{display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:12px 34px;margin-top:24px}
+  .inc div{display:flex;align-items:center;gap:13px;padding:14px 0;
+    border-bottom:1px solid var(--line);font-size:16.5px;font-weight:600}
+  .inc div::before{content:"";flex:none;width:24px;height:24px;border-radius:50%;
+    background:rgba(13,129,211,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230D81D3' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/14px no-repeat}
 
   /* FOUNDING */
   .founding{background:var(--ink);color:#fff;text-align:center}
@@ -197,11 +241,19 @@
 </head>
 <body>
 
+<!-- STICKY HEADER -->
+<header class="site-nav" id="siteNav">
+  <div class="wrap nav-inner">
+    <a href="#top" class="brand">Safary<span>Marketing</span></a>
+    <a href="#book" class="btn btn-sm">Book a Call</a>
+  </div>
+</header>
+
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="top">
   <div class="wrap">
     <div class="eyebrow">Attention private &amp; hard money lenders</div>
-    <h1>Three of every four borrowers you fund will finance their next deal somewhere else.</h1>
+    <h1>Three of every four borrowers you fund will finance their next deal <span class="accent">somewhere else.</span></h1>
     <p class="sub">We build borrower acquisition systems that deliver <strong>6–12 pre-qualified investor appointments a month</strong> — borrowers with a property under contract and a close date — or you don't pay.</p>
     <a class="btn" href="#book">Book a Call</a>
     <div class="btn-micro">30 minutes. If the math doesn't work for you, we'll tell you on the call.</div>
@@ -238,18 +290,22 @@
     <h2>Here's how lenders lose deals they already paid for.</h2>
     <div class="pgrid">
       <div>
+        <div class="pico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg></div>
         <h3>They answer in six hours.</h3>
         <p>Fewer than 2% of web inquiries get a call inside the first hour. Your borrower has hard earnest money and a 14-day close — so they call the next lender on the page.</p>
       </div>
       <div>
+        <div class="pico"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
         <h3>They never follow up with borrowers they already funded.</h3>
         <p>Casual-borrower retention runs 26% industry-wide. The top of the market keeps 84%. That gap is deals you already paid to acquire.</p>
       </div>
       <div>
+        <div class="pico"><svg viewBox="0 0 24 24"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg></div>
         <h3>They let the DSCR takeout walk.</h3>
         <p>The bridge borrower seasons at six months and refinances somewhere else — a second origination on a property you already underwrote.</p>
       </div>
       <div>
+        <div class="pico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>They can't tell you what a funded loan costs.</h3>
         <p>The ad platform reports clicks. The CRM reports contacts. The settlement statement lives somewhere else entirely, and nothing connects them.</p>
       </div>
@@ -260,7 +316,7 @@
 <!-- BAND -->
 <section class="band">
   <div class="wrap">
-    <h2>And it's getting harder to out-price.</h2>
+    <h2>And it's getting harder to <span class="accent">out-price.</span></h2>
     <p>Spreads are the tightest ever tracked — <span class="big">283 basis points</span> over the ten-year, down from 424 in early 2024. Price stopped being a differentiator. Execution is what's left.</p>
   </div>
 </section>
@@ -358,7 +414,7 @@
 <!-- FOUNDING -->
 <section class="founding">
   <div class="wrap">
-    <h2>We're taking three founding clients.</h2>
+    <h2>We're taking three <span class="accent">founding clients.</span></h2>
     <p>We're early in publishing results in this space, and we'd rather say that plainly than dress up a testimonial.</p>
     <p>Three founding clients at reduced pricing, in exchange for permission to publish the numbers — appointments booked, cost per funded loan, what worked and what didn't.</p>
     <p style="margin-bottom:32px">You get specialist work at a discount and a partner with real skin in your outcome. We get the case study.</p>
@@ -478,7 +534,7 @@
 <!-- BOOK -->
 <section class="book" id="book">
   <div class="wrap">
-    <h2>One call tells you whether the math works.</h2>
+    <h2>One call tells you whether <span class="accent">the math works.</span></h2>
     <p>Thirty minutes. We'll ask what you fund, what a funded loan is worth to you, what happens to a web inquiry today, and what your repeat-borrower rate is. You'll leave knowing your own numbers better whether or not we work together.</p>
     <div class="calbox">[ Embedded booking calendar — live on the page, not a redirect ]</div>
     <div class="fields">Fields: Name · Company · Email · Phone · Loans funded per month · States you're active in · Current monthly ad spend</div>
@@ -554,6 +610,45 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   window.addEventListener('resize', function(){ sizeTrack(); update(); });
   update();
+})();
+
+/* Sticky-header shadow on scroll */
+(function(){
+  var nav = document.getElementById('siteNav');
+  if(!nav) return;
+  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 8); }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+
+/* Scroll-reveal: fade-up section content as it enters view.
+   Applied only to leaf elements — never to the sticky slider or its
+   ancestors (a transform there would break position:sticky). */
+(function(){
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var sel = [
+    '.hero .eyebrow','.hero h1','.hero .sub','.hero .btn','.hero .btn-micro',
+    '.vslbox','.fluency h2','.fgrid > p','.fclose',
+    '.pain h2','.pgrid > div',
+    '.band h2','.band p',
+    '.method > .wrap > h2','.method > .wrap > .lede','.method .kicker',
+    '.data h2','.stats > .stat','.src','.mathbox',
+    'section > .wrap > h2','.inc > div','.founding > .wrap > *',
+    '.founder','.dont h2','.dont p',
+    '.comply h2','.comply .lead','.layers > .layer','.comply .kicker',
+    'details','.book h2','.book > .wrap > p','.calbox','.fields'
+  ].join(',');
+  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
+  // Exclude anything inside the scroll-driven slider (keeps sticky intact).
+  els = els.filter(function(el){ return !el.closest('#dfmSlider'); });
+  if(reduce || !('IntersectionObserver' in window)){ return; }
+  els.forEach(function(el){ el.classList.add('reveal'); });
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  els.forEach(function(el){ io.observe(el); });
 })();
 </script>
 
