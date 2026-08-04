@@ -114,7 +114,23 @@
   .vslpanel p{position:relative;padding-left:24px;margin:0 0 14px;font-size:18px;font-weight:700;line-height:1.35}
   .vslpanel p:last-of-type{margin-bottom:0;color:var(--gold)}
   .vslpanel p::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--gold)}
-  .vsl .cta{text-align:center;margin-top:28px}
+  .vsl .above{font-family:"DM Mono",ui-monospace,monospace;font-size:12.5px;letter-spacing:.09em;
+    text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:16px}
+  .vslframe{position:relative;max-width:780px;margin:0 auto;aspect-ratio:16/9;border-radius:18px;
+    background:radial-gradient(120% 120% at 30% 20%,#12324f 0%,#0F1729 55%,#071322 100%);
+    border:1px solid #2A425A;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 24px 60px rgba(15,23,41,.22);overflow:hidden}
+  .vslframe .play{width:78px;height:78px;border-radius:50%;background:var(--gold);display:flex;
+    align-items:center;justify-content:center;box-shadow:0 10px 34px rgba(13,129,211,.5)}
+  .vslframe .play svg{width:30px;height:30px;fill:#fff;margin-left:5px}
+  .vslframe .vlabel{position:absolute;bottom:16px;left:20px;font-family:"DM Mono",ui-monospace,monospace;
+    font-size:12px;letter-spacing:.06em;color:#8FA3B4}
+  .vsl .cta{text-align:center;margin-top:26px}
+  .vslq{display:flex;justify-content:center;flex-wrap:wrap;gap:10px 26px;margin-top:26px}
+  .vslq span{position:relative;padding-left:18px;font-size:14.5px;color:var(--muted)}
+  .vslq span::before{content:"";position:absolute;left:0;top:7px;width:8px;height:8px;border-radius:50%;background:var(--gold)}
+  .vslq span:last-child{color:var(--gold-dark);font-weight:600}
+  @media(max-width:600px){.vslq{flex-direction:column;align-items:flex-start;gap:8px}}
 
   /* PAIN — leak grid */
   .pain h2{max-width:18ch}
@@ -350,13 +366,18 @@
 <!-- VSL -->
 <section class="vsl">
   <div class="wrap">
-    <div class="vslpanel">
-      <div class="above">Two minutes on exactly how this works</div>
-      <p>Funding fewer deals than your pipeline should produce?</p>
-      <p>Inquiries come in and go quiet before anyone calls back?</p>
-      <p>Would you take six pre-qualified investor appointments a month, guaranteed?</p>
+    <div class="above">Two minutes on exactly how this works</div>
+    <!-- Replace this .vslframe with your VSL embed (Wistia / YouTube / Vimeo) when the video is ready -->
+    <div class="vslframe" aria-label="Walkthrough video — coming soon">
+      <div class="play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+      <div class="vlabel">2-minute walkthrough</div>
     </div>
     <div class="cta"><a class="btn" href="#book">Book a Call</a></div>
+    <div class="vslq">
+      <span>Funding fewer deals than your pipeline should?</span>
+      <span>Inquiries go quiet before anyone calls back?</span>
+      <span>Would you take six qualified appointments a month, guaranteed?</span>
+    </div>
   </div>
 </section>
 
@@ -525,7 +546,6 @@
         <div class="pcell"><div class="pn">$5,000<span style="font-size:16px">/mo</span></div><div class="pl">Minimum media — paid by you, your accounts</div></div>
       </div>
       <p>Media is never marked up and never runs through our account. <b>There's no per-funded-loan fee</b> — charging on closings would give you a reason to under-report them, on the exact number this engagement is measured by.</p>
-      <p class="founding">Founding terms exist but aren't published. They're a conversation on the fit call.</p>
     </div>
   </div>
 </section>
@@ -691,7 +711,7 @@
   var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if(reduce||!('IntersectionObserver' in window)) return;
   var sel=['.hero .eyebrow','.hero h1','.hero .sub','.hero .guarantee','.hero .cta-row','.appt-card',
-    '.vslpanel','.vsl .cta','section > .wrap > h2','section > .wrap > .kicker','.pain .lead',
+    '.vsl .above','.vslframe','.vsl .cta','.vslq','.invest .card','section > .wrap > h2','section > .wrap > .kicker','.pain .lead',
     '.leak','.pain-close','.solution p','.pstep','.pillar','.incl-more','.gm','.wct',
     '.stats > .stat','.src','.ctaband .btn','.honest .card','.founder','details.faq','.book .sub','.bookform'].join(',');
   var els=[].slice.call(document.querySelectorAll(sel));
