@@ -12,8 +12,6 @@
 <meta property="og:description" content="6–12 pre-qualified investor appointments a month, booked on your calendar with the deal on the sheet — or you don't pay.">
 <meta property="og:image" content="https://sabrenafaryy.github.io/safary-deal-flow-lp/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Borrower Acquisition Systems for Private &amp; Investor Lenders">
-<meta name="twitter:description" content="6–12 pre-qualified investor appointments a month, booked on your calendar with the deal on the sheet — or you don't pay.">
 <meta name="twitter:image" content="https://sabrenafaryy.github.io/safary-deal-flow-lp/og-image.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,234 +19,258 @@
 <style>
   :root{
     --ink:#0F1729;--ink-2:#071E36;--gold:#0D81D3;--gold-dark:#0B6FB8;
-    --paper:#F6F9FC;--white:#fff;--muted:#52657A;--line:#E3E2DE;--maxw:1080px;
+    --paper:#F6F9FC;--white:#fff;--muted:#52657A;--line:#E3E2DE;--maxw:1100px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{
     font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
-    color:var(--ink);
-    background:
-      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1440' height='900' viewBox='0 0 1440 900'%3E%3Cg fill='%23E4EFFB'%3E%3Ccircle cx='140' cy='170' r='85'/%3E%3Ccircle cx='440' cy='90' r='52'/%3E%3Ccircle cx='770' cy='210' r='112'/%3E%3Ccircle cx='1085' cy='120' r='44'/%3E%3Ccircle cx='1305' cy='255' r='96'/%3E%3Ccircle cx='90' cy='515' r='60'/%3E%3Ccircle cx='330' cy='560' r='82'/%3E%3Ccircle cx='620' cy='640' r='120'/%3E%3Ccircle cx='985' cy='560' r='70'/%3E%3Ccircle cx='1250' cy='620' r='54'/%3E%3Ccircle cx='200' cy='825' r='90'/%3E%3Ccircle cx='525' cy='865' r='48'/%3E%3Ccircle cx='860' cy='845' r='76'/%3E%3Ccircle cx='1160' cy='835' r='86'/%3E%3C/g%3E%3C/svg%3E") center top / cover no-repeat fixed,
-      var(--paper);
-    line-height:1.55;-webkit-font-smoothing:antialiased;
+    color:var(--ink);background:var(--paper);line-height:1.5;-webkit-font-smoothing:antialiased;
   }
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-  section{padding:82px 0}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
+  .narrow{max-width:780px}
+  section{padding:88px 0}
   .eyebrow{
-    display:inline-flex;align-items:center;gap:9px;
-    font-family:"DM Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.1em;
-    text-transform:uppercase;font-weight:500;color:var(--gold);margin-bottom:24px;
-    padding:8px 15px;border:1px solid var(--line);border-radius:9999px;background:var(--white);
-    box-shadow:0 1px 2px rgba(15,23,41,.05);
-  }
+    display:inline-flex;align-items:center;gap:9px;font-family:"DM Mono",ui-monospace,monospace;
+    font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;color:var(--gold);
+    margin-bottom:22px;padding:8px 15px;border:1px solid var(--line);border-radius:9999px;
+    background:var(--white);box-shadow:0 1px 2px rgba(15,23,41,.05)}
   .eyebrow::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--gold);
     box-shadow:0 0 0 3px rgba(13,129,211,.18)}
   .hero .eyebrow{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14);color:#CFE3F5}
-  h1{font-size:clamp(31px,4.6vw,52px);line-height:1.08;letter-spacing:-.02em;font-weight:800}
-  h2{font-size:clamp(25px,3.4vw,38px);line-height:1.15;letter-spacing:-.015em;font-weight:800;margin-bottom:18px}
-  h3{font-size:19px;font-weight:750;margin-bottom:9px;letter-spacing:-.01em}
-  p{font-size:17px;color:var(--ink);margin-bottom:16px}
-  .lede{font-size:20px;line-height:1.5}
+  h1{font-size:clamp(34px,5vw,56px);line-height:1.05;letter-spacing:-.025em;font-weight:800}
+  h2{font-size:clamp(27px,3.6vw,42px);line-height:1.1;letter-spacing:-.02em;font-weight:800;margin-bottom:16px}
+  .kicker{font-family:"DM Mono",ui-monospace,monospace;font-size:12.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--gold);font-weight:500;margin-bottom:16px}
+  p{font-size:17px;color:var(--ink)}
   .muted{color:var(--muted)}
-  .accent{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;
-    color:var(--gold);letter-spacing:.01em}
-  h1 .accent{font-size:1.06em;line-height:.9}
-
-  .btn{
-    display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;
-    font-weight:600;font-size:17px;letter-spacing:-.01em;padding:16px 32px;border-radius:9999px;
-    text-decoration:none;border:1px solid var(--gold);box-shadow:0 6px 22px rgba(13,129,211,.32);
-    transition:transform .16s ease,box-shadow .2s ease,background .16s ease,border-color .16s ease;
-    cursor:pointer;font-family:inherit;
-  }
-  .btn::after{content:"\2192";font-size:1.05em;line-height:1;transition:transform .2s ease}
-  .btn:hover{background:var(--gold-dark);border-color:var(--gold-dark);transform:translateY(-2px);
-    box-shadow:0 12px 30px rgba(13,129,211,.42)}
-  .btn:hover::after{transform:translateX(3px)}
-  .btn-micro{font-size:14px;color:var(--muted);margin-top:14px}
+  .lead{font-size:19px;color:var(--muted);line-height:1.55}
+  .accent{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:400;color:var(--gold);letter-spacing:.01em}
+  h1 .accent{font-size:1.05em}
+  h2 .accent{font-size:1.12em}
   .center{text-align:center}
 
-  /* STICKY HEADER */
+  .btn{display:inline-flex;align-items:center;gap:9px;background:var(--gold);color:#fff;font-weight:600;
+    font-size:17px;letter-spacing:-.01em;padding:16px 34px;border-radius:9999px;text-decoration:none;
+    border:1px solid var(--gold);box-shadow:0 6px 22px rgba(13,129,211,.32);cursor:pointer;font-family:inherit;
+    transition:transform .16s,box-shadow .2s,background .16s,border-color .16s}
+  .btn::after{content:"\2192";font-size:1.05em;transition:transform .2s}
+  .btn:hover{background:var(--gold-dark);border-color:var(--gold-dark);transform:translateY(-2px);box-shadow:0 12px 30px rgba(13,129,211,.42)}
+  .btn:hover::after{transform:translateX(3px)}
+  .btn-micro{font-size:13.5px;color:var(--muted);margin-top:13px}
+
+  /* NAV */
   .site-nav{position:sticky;top:0;z-index:50;background:rgba(246,249,252,.82);
     backdrop-filter:saturate(1.2) blur(10px);-webkit-backdrop-filter:saturate(1.2) blur(10px);
-    border-bottom:1px solid transparent;transition:box-shadow .2s ease,border-color .2s ease}
+    border-bottom:1px solid transparent;transition:box-shadow .2s,border-color .2s}
   .site-nav.scrolled{border-color:var(--line);box-shadow:0 2px 18px rgba(15,23,41,.06)}
-  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:62px}
   .brand{font-weight:800;font-size:19px;letter-spacing:-.02em;color:var(--ink);text-decoration:none}
-  .brand span{color:var(--gold);margin-left:5px;font-weight:700}
+  .brand span{color:var(--gold);margin-left:5px}
   .btn-sm{padding:10px 20px;font-size:15px;box-shadow:0 4px 16px rgba(13,129,211,.28)}
-  @media(max-width:520px){ .brand span{display:none} }
+  @media(max-width:520px){.brand span{display:none}}
 
-  /* SCROLL-REVEAL */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+  .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s,transform .6s}
   .reveal.in{opacity:1;transform:none}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
 
   /* HERO */
-  .hero{background:var(--ink);color:var(--white);padding:92px 0 84px}
-  .hero h1{color:#fff;max-width:20ch}
-  .hero .sub{font-size:20px;line-height:1.5;color:#C7D2DC;margin:26px 0 26px;max-width:60ch}
-  .hero .guarantee{display:inline-flex;align-items:flex-start;gap:11px;max-width:62ch;
-    padding:13px 18px;border-radius:12px;background:rgba(13,129,211,.12);
-    border:1px solid rgba(13,129,211,.35);color:#DCEBFA;font-size:15.5px;line-height:1.5;font-weight:500}
-  .hero .guarantee svg{flex:none;width:21px;height:21px;stroke:var(--gold);fill:none;stroke-width:2;
+  .hero{background:var(--ink);color:#fff;padding:80px 0 88px;overflow:hidden}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:52px;align-items:center}
+  .hero h1{color:#fff;letter-spacing:-.03em}
+  .hero .sub{font-size:19px;color:#C7D2DC;margin:22px 0 24px;max-width:52ch}
+  .hero .guarantee{display:inline-flex;align-items:flex-start;gap:11px;max-width:56ch;padding:13px 18px;
+    border-radius:12px;background:rgba(13,129,211,.12);border:1px solid rgba(13,129,211,.35);
+    color:#DCEBFA;font-size:15px;line-height:1.5;margin-bottom:28px}
+  .hero .guarantee svg{flex:none;width:20px;height:20px;stroke:var(--gold);fill:none;stroke-width:2;
     stroke-linecap:round;stroke-linejoin:round;margin-top:1px}
   .hero .guarantee b{color:var(--gold);font-weight:800}
+  .hero .cta-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+  .trust{font-size:13.5px;color:#8FA3B4}
+
+  /* Hero product mockup */
+  .appt-card{background:#fff;color:var(--ink);border-radius:16px;padding:22px 22px 18px;
+    box-shadow:0 30px 70px rgba(0,0,0,.4);max-width:380px;margin-left:auto;position:relative}
+  .appt-card .sample{position:absolute;top:14px;right:16px;font-family:"DM Mono",monospace;font-size:9.5px;
+    letter-spacing:.1em;color:var(--muted);background:var(--paper);border:1px solid var(--line);
+    border-radius:6px;padding:3px 7px}
+  .appt-top{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;color:#1a8f4a;
+    text-transform:uppercase;letter-spacing:.06em}
+  .appt-top .dot{width:9px;height:9px;border-radius:50%;background:#22C55E;box-shadow:0 0 0 4px rgba(34,197,94,.18)}
+  .appt-name{font-size:20px;font-weight:800;margin:12px 0 14px;letter-spacing:-.01em}
+  .appt-rows{display:flex;flex-direction:column;gap:9px}
+  .appt-rows > div{display:flex;justify-content:space-between;font-size:14px;border-bottom:1px dashed var(--line);padding-bottom:9px}
+  .appt-rows > div:last-child{border-bottom:0}
+  .appt-rows span{color:var(--muted)}
+  .appt-rows b{font-weight:700}
+  .appt-foot{margin-top:14px;font-size:12.5px;color:var(--gold);font-weight:600}
 
   /* VSL */
   .vsl{padding-top:0}
-  .vsl .above{font-family:"DM Mono",ui-monospace,monospace;font-size:12.5px;letter-spacing:.06em;
-    text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:16px}
-  .vslpanel{max-width:760px;margin:0 auto;background:var(--white);border:1px solid var(--line);
-    border-radius:16px;padding:38px 42px;box-shadow:0 1px 3px rgba(15,23,41,.05)}
-  .vslpanel p{position:relative;padding-left:26px;margin:0 0 18px;font-size:20px;line-height:1.4;
-    font-weight:700;color:var(--ink)}
-  .vslpanel p:last-child{margin-bottom:0;color:var(--gold)}
-  .vslpanel p::before{content:"";position:absolute;left:0;top:11px;width:11px;height:11px;
-    border-radius:50%;background:var(--gold)}
-  .vsl .cta{text-align:center;margin-top:30px}
-  .vsl .cta .btn{font-size:18px;padding:18px 40px}
+  .vslpanel{max-width:720px;margin:0 auto;background:var(--white);border:1px solid var(--line);
+    border-radius:16px;padding:34px 40px;box-shadow:0 1px 3px rgba(15,23,41,.05)}
+  .vslpanel .above{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--muted);margin-bottom:18px}
+  .vslpanel p{position:relative;padding-left:24px;margin:0 0 14px;font-size:18px;font-weight:700;line-height:1.35}
+  .vslpanel p:last-of-type{margin-bottom:0;color:var(--gold)}
+  .vslpanel p::before{content:"";position:absolute;left:0;top:9px;width:10px;height:10px;border-radius:50%;background:var(--gold)}
+  .vsl .cta{text-align:center;margin-top:28px}
 
-  /* PAIN POINTS */
-  .painblock{background:var(--white);border:1px solid var(--line);border-radius:16px;
-    padding:26px 30px;margin-bottom:18px;box-shadow:0 1px 2px rgba(15,23,41,.04)}
-  .painblock .p-prob{font-size:17px;color:var(--ink);margin:0 0 16px}
-  .painblock .p-prob b{font-weight:800}
-  .painblock .p-fix{font-size:16px;color:var(--ink);margin:0;padding:16px 18px;border-radius:10px;
-    background:rgba(13,129,211,.07);border-left:3px solid var(--gold)}
-  .painblock .p-fix b{color:var(--gold-dark);font-weight:800}
-  .pain-close{margin-top:30px;font-size:22px;font-weight:800;letter-spacing:-.015em;max-width:64ch}
-  .pain h2{max-width:20ch}
+  /* PAIN — leak grid */
+  .pain h2{max-width:18ch}
+  .pain .lead{max-width:62ch;margin-bottom:34px}
+  .leakgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+  .leak{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 22px;
+    box-shadow:0 1px 2px rgba(15,23,41,.04);transition:transform .18s,box-shadow .18s}
+  .leak:hover{transform:translateY(-3px);box-shadow:0 12px 28px rgba(15,23,41,.08)}
+  .lico{width:40px;height:40px;border-radius:10px;background:rgba(13,129,211,.10);display:flex;align-items:center;
+    justify-content:center;color:var(--gold);margin-bottom:14px}
+  .lico svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .leak h3{font-size:17px;font-weight:800;margin-bottom:6px}
+  .leak p{font-size:15px;color:var(--muted);margin:0}
+  .leak p b{color:var(--gold-dark)}
+  .pain-close{margin-top:32px;font-size:clamp(21px,2.6vw,26px);font-weight:800;letter-spacing:-.02em;max-width:24ch}
 
-  /* THE SOLUTION */
+  /* SOLUTION */
   .solution{background:var(--ink);color:#fff;text-align:center}
-  .solution h2{color:#fff;max-width:24ch;margin:0 auto 22px}
-  .solution p{color:#C7D2DC;max-width:66ch;margin:0 auto 16px;font-size:18px}
-  .solution p:last-child{margin-bottom:0}
-  .solution strong{color:#fff}
+  .solution h2{color:#fff;max-width:22ch;margin:0 auto 18px}
+  .solution p{color:#C7D2DC;font-size:19px;max-width:60ch;margin:0 auto 22px}
+  .solution .big{font-size:clamp(22px,3vw,30px);font-weight:800;color:#fff}
 
   /* PROCESS */
-  .process h2{max-width:22ch}
-  .steps{margin-top:34px}
-  .pstep{display:grid;grid-template-columns:52px 1fr;gap:22px;padding:24px 0;border-top:1px solid var(--line)}
-  .pstep:last-child{border-bottom:1px solid var(--line)}
+  .process h2{max-width:20ch}
+  .steps{margin-top:32px;display:grid;grid-template-columns:1fr 1fr;gap:14px 34px}
+  .pstep{display:grid;grid-template-columns:46px 1fr;gap:16px;align-items:start;padding:16px 0}
   .pstep .pn{width:44px;height:44px;border-radius:50%;background:var(--gold);color:#fff;
-    font-family:"DM Mono",ui-monospace,monospace;font-weight:500;font-size:15px;
-    display:flex;align-items:center;justify-content:center}
-  .pstep h3{font-size:19px;margin-bottom:6px}
-  .pstep p{color:var(--muted);font-size:16px;margin:0}
+    font-family:"DM Mono",monospace;font-weight:500;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .pstep h3{font-size:17px;margin-bottom:3px}
+  .pstep p{font-size:15px;color:var(--muted);margin:0}
 
-  /* WHAT'S INCLUDED */
-  .inc-cat{margin-top:38px}
-  .inc-cat > h3{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--gold);margin-bottom:16px;padding-bottom:11px;
-    border-bottom:1px solid var(--line)}
-  .inc-items{display:grid;grid-template-columns:1fr 1fr;gap:18px 34px}
-  .inc-item{font-size:15px;color:var(--muted);line-height:1.5}
-  .inc-item b{color:var(--ink);font-weight:700}
-  .reg{font-size:16px;color:var(--muted);max-width:80ch}
-  .guarantee-box{margin-top:34px;background:var(--ink);color:#fff;border-radius:16px;padding:32px 34px}
-  .guarantee-box h3{color:var(--gold);font-family:"DM Mono",ui-monospace,monospace;font-size:13px;
-    letter-spacing:.1em;text-transform:uppercase;margin-bottom:14px}
-  .guarantee-box p{color:#C7D2DC;font-size:16px;max-width:82ch}
-  .guarantee-box p:last-child{margin-bottom:0}
-  .guarantee-box b{color:#fff}
-  .mathbox{margin-top:20px;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px 32px}
-  .mathbox h3{font-family:"DM Mono",ui-monospace,monospace;font-size:13px;letter-spacing:.1em;
-    text-transform:uppercase;color:var(--gold);margin-bottom:14px}
-  .mathbox p{font-size:17px}
-  .mathbox p:last-child{margin-bottom:0}
-  .mathbox b{font-weight:800}
+  /* INCLUDED — pillars + expander */
+  .included h2{max-width:18ch}
+  .pillars{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:34px}
+  .pillar{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px 20px;box-shadow:0 1px 2px rgba(15,23,41,.04)}
+  .pico{width:42px;height:42px;border-radius:11px;background:rgba(13,129,211,.10);display:flex;align-items:center;
+    justify-content:center;color:var(--gold);margin-bottom:14px}
+  .pico svg{width:22px;height:22px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+  .pillar h3{font-size:17px;font-weight:800;margin-bottom:6px}
+  .pillar p{font-size:14.5px;color:var(--muted);margin:0}
+  .incl-more{margin-top:18px;border:1px solid var(--line);border-radius:14px;background:var(--white);overflow:hidden}
+  .incl-more>summary{list-style:none;cursor:pointer;padding:18px 24px;font-weight:700;font-size:16px;
+    display:flex;justify-content:space-between;align-items:center}
+  .incl-more>summary::-webkit-details-marker{display:none}
+  .incl-more>summary::after{content:"See everything  +";font-family:"DM Mono",monospace;font-size:12px;color:var(--gold);letter-spacing:.04em}
+  .incl-more[open]>summary::after{content:"Close  –"}
+  .incl-body{padding:4px 24px 26px}
+  .incl-cat{margin-top:22px}
+  .incl-cat h4{font-family:"DM Mono",monospace;font-size:12px;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:12px;padding-bottom:9px;border-bottom:1px solid var(--line)}
+  .incl-items{display:grid;grid-template-columns:1fr 1fr;gap:12px 30px}
+  .incl-items div{font-size:14px;color:var(--muted)}
+  .incl-items b{color:var(--ink)}
+  .incl-reg{font-size:14px;color:var(--muted);margin-top:22px}
 
-  /* WHY CHOOSE YOU — comparison cards (no horizontal scroll on mobile) */
-  .compare-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:34px;align-items:start}
-  .ccard{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:24px 22px;
-    box-shadow:0 1px 2px rgba(15,23,41,.04)}
+  /* GUARANTEE + MATH strip */
+  .gm{display:grid;grid-template-columns:1.15fr .85fr;gap:16px;margin-top:18px}
+  .gbox{background:var(--ink);color:#fff;border-radius:16px;padding:30px 32px}
+  .gbox .kicker{color:var(--gold)}
+  .gbox p{color:#C7D2DC;font-size:15.5px;margin-bottom:12px}
+  .gbox p:last-child{margin-bottom:0}
+  .gbox b{color:#fff}
+  .mbox{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:30px 30px}
+  .mbox .kicker{color:var(--gold)}
+  .mbox p{font-size:15.5px;color:var(--ink);margin-bottom:10px}
+  .mbox p:last-child{margin-bottom:0;color:var(--muted);font-style:italic}
+  .mbox b{font-weight:800}
+
+  /* COMPARE */
+  .compare-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;align-items:start}
+  .ccard{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:24px 22px;box-shadow:0 1px 2px rgba(15,23,41,.04)}
   .ccard.hl{border:1px solid var(--gold);box-shadow:0 14px 36px rgba(13,129,211,.14)}
-  .ccard-h{font-size:18px;font-weight:800;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  .ccard-h{font-size:18px;font-weight:800;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid var(--line)}
   .ccard.hl .ccard-h{color:var(--gold)}
-  .crow{margin-bottom:15px}
-  .crow:last-child{margin-bottom:0}
-  .crow .cl{display:block;font-family:"DM Mono",ui-monospace,monospace;font-size:10.5px;
-    letter-spacing:.07em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-  .crow .cv{font-size:14.5px;color:var(--muted);line-height:1.45}
+  .crow{margin-bottom:14px}.crow:last-child{margin-bottom:0}
+  .crow .cl{display:block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+  .crow .cv{font-size:14px;color:var(--muted);line-height:1.4}
   .ccard.hl .crow .cv{color:var(--ink);font-weight:600}
-  @media(max-width:760px){ .compare-cards{grid-template-columns:1fr} }
+  @media(max-width:760px){.compare-cards{grid-template-columns:1fr}}
 
-  /* PROOF — industry data */
+  /* DATA */
   .data{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:22px;margin:28px 0 22px}
-  .stat{border-left:3px solid var(--gold);padding:6px 0 6px 18px}
-  .stat .n{font-size:32px;font-weight:800;letter-spacing:-.02em;line-height:1.1}
-  .stat .l{font-size:14px;color:var(--muted);margin-top:6px}
-  .src{font-size:13.5px;color:var(--muted);font-style:italic;max-width:82ch}
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:22px;margin:26px 0 20px}
+  .stat{border-left:3px solid var(--gold);padding:4px 0 4px 18px}
+  .stat .n{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1.05}
+  .stat .l{font-size:13.5px;color:var(--muted);margin-top:6px}
+  .src{font-size:13px;color:var(--muted);font-style:italic;max-width:80ch}
 
-  /* MID CTA BAND */
+  /* CTA BAND */
   .ctaband{background:var(--ink);color:#fff;text-align:center}
-  .ctaband h2{color:#fff;max-width:22ch;margin:0 auto 20px}
+  .ctaband h2{color:#fff;max-width:20ch;margin:0 auto 18px}
   .ctaband .btn{margin:0 auto}
 
-  /* HONEST SECTION */
-  .honest .card{background:var(--white);border:1px solid var(--line);border-radius:18px;
-    padding:40px 40px;box-shadow:0 1px 3px rgba(15,23,41,.05);max-width:820px;margin:0 auto}
-  .honest h2{text-align:center;max-width:20ch;margin:0 auto 8px}
-  .honest .intro{color:var(--muted);text-align:center;max-width:70ch;margin:0 auto 26px}
-  .honest ul{list-style:none;margin:0 0 26px;display:flex;flex-direction:column;gap:12px}
-  .honest li{position:relative;padding-left:34px;font-size:16px;color:var(--ink)}
-  .honest li::before{content:"";position:absolute;left:0;top:2px;width:22px;height:22px;border-radius:50%;
-    background:rgba(13,129,211,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230D81D3' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/13px no-repeat}
-  .honest .trade{margin:0;padding:22px 24px;border-radius:12px;background:rgba(13,129,211,.07);
-    border-left:3px solid var(--gold);font-size:16px}
+  /* HONEST */
+  .honest .card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:40px;
+    box-shadow:0 1px 3px rgba(15,23,41,.05);max-width:760px;margin:0 auto}
+  .honest h2{text-align:center;max-width:16ch;margin:0 auto 8px}
+  .honest .intro{color:var(--muted);text-align:center;max-width:60ch;margin:0 auto 24px;font-size:16px}
+  .honest ul{list-style:none;margin:0 0 24px;display:flex;flex-direction:column;gap:11px}
+  .honest li{position:relative;padding-left:32px;font-size:16px}
+  .honest li::before{content:"";position:absolute;left:0;top:2px;width:21px;height:21px;border-radius:50%;
+    background:rgba(13,129,211,.12) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='13' height='13' viewBox='0 0 24 24' fill='none' stroke='%230D81D3' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E") center/12px no-repeat}
+  .honest .trade{margin:0;padding:20px 22px;border-radius:12px;background:rgba(13,129,211,.07);border-left:3px solid var(--gold);font-size:15.5px}
   .honest .trade b{color:var(--gold-dark)}
 
-  /* ABOUT / FOUNDER */
-  .founder{display:grid;grid-template-columns:180px 1fr;gap:38px;align-items:start}
-  .avatar{width:180px;height:180px;border-radius:12px;background:var(--line);
-    display:flex;align-items:center;justify-content:center;color:var(--muted);font-size:13px;
-    text-align:center;padding:14px}
+  /* ABOUT */
+  .founder{display:grid;grid-template-columns:160px 1fr;gap:36px;align-items:start}
+  .avatar{width:160px;height:160px;border-radius:14px;background:var(--line);display:flex;align-items:center;
+    justify-content:center;color:var(--muted);font-size:12px;text-align:center;padding:12px}
+  .founder p{color:var(--muted);margin-bottom:12px;font-size:16px}
+  .founder p strong{color:var(--ink)}
 
   /* FAQ */
-  details{border-bottom:1px solid var(--line);padding:20px 0}
-  summary{font-size:18px;font-weight:700;cursor:pointer;list-style:none;letter-spacing:-.01em}
-  summary::-webkit-details-marker{display:none}
-  summary::after{content:"+";float:right;color:var(--gold);font-weight:800}
-  details[open] summary::after{content:"–"}
-  details p{margin:14px 0 0;color:var(--muted);font-size:16.5px;max-width:80ch}
+  details.faq{border-bottom:1px solid var(--line);padding:18px 0}
+  details.faq summary{font-size:17px;font-weight:700;cursor:pointer;list-style:none}
+  details.faq summary::-webkit-details-marker{display:none}
+  details.faq summary::after{content:"+";float:right;color:var(--gold);font-weight:800}
+  details.faq[open] summary::after{content:"–"}
+  details.faq p{margin:12px 0 0;color:var(--muted);font-size:16px;max-width:78ch}
 
-  /* CALENDLY / BOOK */
+  /* BOOK */
   .book{background:var(--ink);color:#fff}
   .book h2{color:#fff}
-  .book .sub{color:#C7D2DC;max-width:60ch}
-  .calbox{margin-top:30px;border:2px dashed #38506A;border-radius:12px;padding:44px 26px;text-align:center;
-    color:#8FA3B4;font-size:15px}
-  .bookform{margin-top:30px;background:rgba(255,255,255,.03);border:1px solid #2A425A;border-radius:16px;
-    padding:30px;display:grid;grid-template-columns:1fr 1fr;gap:16px}
-  .bookform .full{grid-column:1 / -1}
-  .bookform label{display:block;font-size:12.5px;font-family:"DM Mono",ui-monospace,monospace;
-    letter-spacing:.06em;text-transform:uppercase;color:#8FA3B4;margin-bottom:6px}
+  .book .sub{color:#C7D2DC;max-width:56ch;font-size:17px}
+  .bookform{margin-top:28px;background:rgba(255,255,255,.03);border:1px solid #2A425A;border-radius:16px;
+    padding:28px;display:grid;grid-template-columns:1fr 1fr;gap:14px;max-width:760px}
+  .bookform label{display:block;font-size:12px;font-family:"DM Mono",monospace;letter-spacing:.05em;
+    text-transform:uppercase;color:#8FA3B4;margin-bottom:6px}
   .bookform input,.bookform select{width:100%;padding:12px 14px;border-radius:9px;border:1px solid #2A425A;
     background:#0C2136;color:#fff;font-family:inherit;font-size:15px}
   .bookform input::placeholder{color:#5E7488}
   .bookform .btn{grid-column:1 / -1;justify-content:center;margin-top:4px}
-  .book .foot-note{margin-top:18px;font-size:13px;color:#8FA3B4}
+  .foot-note{margin-top:16px;font-size:13px;color:#8FA3B4}
 
-  footer{background:#08131F;color:#7B8A99;padding:44px 0;font-size:13.5px}
-  footer p{color:#7B8A99;font-size:13.5px;max-width:88ch}
+  footer{background:#08131F;color:#7B8A99;padding:40px 0;font-size:13px}
+  footer p{color:#7B8A99;font-size:13px;max-width:88ch;margin-bottom:10px}
 
+  @media(max-width:860px){
+    .hero-grid{grid-template-columns:1fr;gap:40px}
+    .appt-card{margin:0 auto}
+    .pillars{grid-template-columns:1fr 1fr}
+    .steps{grid-template-columns:1fr}
+    .gm{grid-template-columns:1fr}
+  }
   @media(max-width:720px){
-    section{padding:58px 0}
-    .inc-items{grid-template-columns:1fr}
-    .founder{grid-template-columns:1fr;gap:22px}
-    .avatar{width:120px;height:120px}
-    .bookform{grid-template-columns:1fr;padding:24px}
-    .pstep{grid-template-columns:44px 1fr;gap:16px}
+    section{padding:60px 0}
+    .incl-items{grid-template-columns:1fr}
+    .founder{grid-template-columns:1fr;gap:20px}
+    .avatar{width:110px;height:110px}
+    .bookform{grid-template-columns:1fr;padding:22px}
+    .pillars{grid-template-columns:1fr}
   }
 </style>
 </head>
 <body>
 
-<!-- STICKY HEADER -->
 <header class="site-nav" id="siteNav">
   <div class="wrap nav-inner">
     <a href="#top" class="brand">Safary<span>Marketing</span></a>
@@ -256,370 +278,349 @@
   </div>
 </header>
 
-<!-- 1 & 2 · HEADLINE + SUBHEADING -->
+<!-- HERO -->
 <section class="hero" id="top">
-  <div class="wrap">
-    <div class="eyebrow">For private money lenders and brokers placing 3+ loans a month</div>
-    <h1>We build borrower acquisition systems that deliver 6–12 pre-qualified investor appointments a month — borrowers with a property under contract and a close date — <span class="accent">or you don't pay.</span></h1>
-    <p class="sub">Booked straight onto your calendar, with the address, the purchase price and the ARV already on the sheet.</p>
-    <div class="guarantee">
-      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 3v6c0 4.5-3 7.9-7 9-4-1.1-7-4.5-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-      <span>If we don't deliver 6 in your first 90 days, <b>we work free until we do — and refund your setup fee.</b></span>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">For lenders &amp; brokers placing 3+ loans a month</div>
+      <h1>6–12 pre-qualified investor appointments a month. <span class="accent">Or you don't pay.</span></h1>
+      <p class="sub">We run the ads and funnels that put borrowers — property under contract, close date set — straight on your calendar, with the deal on the sheet.</p>
+      <div class="guarantee">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 3v6c0 4.5-3 7.9-7 9-4-1.1-7-4.5-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
+        <span>6 in your first 90 days, or <b>we work free until we hit it — and refund your setup.</b></span>
+      </div>
+      <div class="cta-row">
+        <a class="btn" href="#book">Book a Call</a>
+        <span class="trust">30 min. If the math doesn't work, I'll say so.</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="appt-card">
+        <span class="sample">SAMPLE</span>
+        <div class="appt-top"><span class="dot"></span> New appointment booked</div>
+        <div class="appt-name">Marcus R. · Fix &amp; Flip</div>
+        <div class="appt-rows">
+          <div><span>Property</span><b>1420 NW 12th, OKC</b></div>
+          <div><span>Purchase price</span><b>$185,000</b></div>
+          <div><span>ARV</span><b>$310,000</b></div>
+          <div><span>Close date</span><b>14 days</b></div>
+          <div><span>Experience</span><b>9 flips</b></div>
+        </div>
+        <div class="appt-foot">Booked Sat 9:12am · first reply in 3 minutes</div>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 3 & 4 · VSL + CTA -->
+<!-- VSL -->
 <section class="vsl">
   <div class="wrap">
-    <div class="above">Two minutes on exactly how this works</div>
     <div class="vslpanel">
-      <p>Are you funding fewer deals than your pipeline should be producing?</p>
-      <p>Do inquiries come in and go quiet before anyone calls them back?</p>
-      <p>Would you take 6 to 12 pre-qualified investor appointments a month?</p>
+      <div class="above">Two minutes on exactly how this works</div>
+      <p>Funding fewer deals than your pipeline should produce?</p>
+      <p>Inquiries come in and go quiet before anyone calls back?</p>
+      <p>Would you take 6–12 pre-qualified investor appointments a month?</p>
     </div>
-    <div class="cta">
-      <a class="btn" href="#book">Book a Call</a>
-      <div class="btn-micro">30 minutes. If the math doesn't work for you, I'll say so on the call.</div>
-    </div>
+    <div class="cta"><a class="btn" href="#book">Book a Call</a></div>
   </div>
 </section>
 
-<!-- 5 · PROOF SLOT ONE — intentionally empty until real client logos exist (do not substitute) -->
-
-<!-- 6 · PAIN POINTS -->
+<!-- PAIN -->
 <section class="pain">
   <div class="wrap">
     <h2>You're not short on deals. You're short on the ones that reach you.</h2>
-
-    <div class="painblock">
-      <p class="p-prob"><b>Your pipeline has one door, and you don't control it.</b> Referrals built this business. But referrals arrive when they arrive. Lose one of your top three sources and the quarter changes shape. Meanwhile there are investors in your market tonight, contract signed, searching for money — and the lender they call is whoever paid to be there.</p>
-      <p class="p-fix"><b>So we build you a second door.</b> Ads running in your markets, on the products you write, in front of investors at the minute they start looking. Landing on funnel pages built to make you the obvious call — not a homepage that makes them work for it.</p>
+    <p class="lead">Referrals built your book — but you don't control them, and the deals you do get leak out five ways.</p>
+    <div class="leakgrid">
+      <div class="leak">
+        <div class="lico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 16 14"/></svg></div>
+        <h3>You answer in ~6 hours.</h3>
+        <p>He signs with someone else by Sunday. <b>We reply in under 5 minutes, 24/7, by text.</b></p>
+      </div>
+      <div class="leak">
+        <div class="lico"><svg viewBox="0 0 24 24"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M10 21v-6h4v6"/></svg></div>
+        <h3>New borrowers can't find you.</h3>
+        <p>Your pipeline has one door. <b>Ads put you in front of investors searching your markets now.</b></p>
+      </div>
+      <div class="leak">
+        <div class="lico"><svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+        <h3>"Not yet" borrowers vanish.</h3>
+        <p>Ready in November, funded elsewhere. <b>Nurtured by tier until the month they book.</b></p>
+      </div>
+      <div class="leak">
+        <div class="lico"><svg viewBox="0 0 24 24"><polyline points="17 1 21 5 17 9"/><path d="M3 11V9a4 4 0 0 1 4-4h14"/><polyline points="7 23 3 19 7 15"/><path d="M21 13v2a4 4 0 0 1-4 4H3"/></svg></div>
+        <h3>Your borrower refis elsewhere.</h3>
+        <p>A second closing you underwrote first. <b>We're there at seasoning with his number.</b></p>
+      </div>
+      <div class="leak">
+        <div class="lico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3>You can't see what a loan cost.</h3>
+        <p>Clicks, contacts, closings — three systems. <b>One number: cost per funded loan.</b></p>
+      </div>
+      <div class="leak" style="display:flex;flex-direction:column;justify-content:center;background:var(--ink);border-color:var(--ink)">
+        <p style="color:#fff;font-size:18px;font-weight:800;line-height:1.35;margin:0">You used to out-price all of this. Not at today's spreads.</p>
+      </div>
     </div>
-
-    <div class="painblock">
-      <p class="p-prob"><b>They don't know you yet, and they're comparing you to four other lenders.</b> A borrower shopping three lenders picks on price, because price is the only thing he can compare. That's a race you don't want to be in at today's spreads.</p>
-      <p class="p-fix"><b>So the funnel does the convincing before the conversation.</b> Your terms, your speed, your recent closings, your leverage — laid out so he arrives already believing you're the one who can actually fund it. He shows up sold on you, not shopping you.</p>
-    </div>
-
-    <div class="painblock">
-      <p class="p-prob"><b>Saturday, 9am.</b> A flipper with a property under contract fills out your form. The industry answers a web inquiry in about six hours. By Sunday he's signed somewhere else, and you never knew the deal existed.</p>
-      <p class="p-fix"><b>So we answer in under five minutes, at any hour.</b> By text, automatically, weekends included. The deal gets qualified while he's still sitting in his truck outside the property.</p>
-    </div>
-
-    <div class="painblock">
-      <p class="p-prob"><b>"Not this one, but keep in touch."</b> She wasn't ready in March. Nobody called in April. She funds with someone else in November — a deal you'd already earned and quietly gave away.</p>
-      <p class="p-fix"><b>So nobody falls out of the system.</b> Not-ready borrowers go into nurture and stay there, split by how experienced they are, until the month they're ready. Then they book.</p>
-    </div>
-
-    <div class="painblock">
-      <p class="p-prob"><b>Your own borrower, twelve months on.</b> The bridge loan seasons. He refinances into a rental loan with a lender who isn't you. That's a second closing on a property you underwrote, valued, and took the risk on first.</p>
-      <p class="p-fix"><b>So we're there at seasoning with his number.</b> Before anyone else is. Two closings on one property instead of handing the second one to a competitor.</p>
-    </div>
-
-    <p class="pain-close">You used to be able to out-price all of this. Not at today's spreads. The lender who wins now is the one whose pipeline doesn't leak.</p>
+    <p class="pain-close">The lender who wins now is the one whose pipeline doesn't leak.</p>
   </div>
 </section>
 
-<!-- 7 · THE SOLUTION -->
+<!-- SOLUTION -->
 <section class="solution">
-  <div class="wrap">
+  <div class="wrap narrow" style="margin:0 auto">
     <h2>A borrower acquisition system, built and run for you.</h2>
-    <p>We run the ads that find investors in your markets. We build the funnel pages that make you the obvious call instead of one of four quotes. And we run the follow-up that turns an inquiry into a booked appointment while the deal is still live.</p>
-    <p><strong>You get pre-qualified borrowers on your calendar with the deal already on the sheet.</strong></p>
-    <p>Most agencies stop at the click and call it a campaign. We don't stop until it's an appointment — which is why we can put a number on it.</p>
+    <p>We run the ads that find investors, build the funnels that make you the obvious call, and run the follow-up that books the appointment while the deal's still live.</p>
+    <p class="big">You never touch a raw lead.</p>
   </div>
 </section>
 
-<!-- 8 · PROCESS -->
+<!-- PROCESS -->
 <section class="process">
   <div class="wrap">
+    <div class="kicker">The process</div>
     <h2>How a stranger becomes a funded loan</h2>
     <div class="steps">
-      <div class="pstep"><div class="pn">01</div><div><h3>The ads put you in the room</h3><p>An investor starts looking for money and your ad is there — in your markets, on the product he needs, at the minute he needs it. Search, social and the local map, working together.</p></div></div>
-      <div class="pstep"><div class="pn">02</div><div><h3>The funnel page makes you the obvious call</h3><p>Not your homepage. A page built for one loan product, showing your leverage, your timelines and your recent closings with real numbers — so he stops comparing rates and starts believing you're the one who can actually fund it. This is where a stranger becomes someone who knows you and trusts you.</p></div></div>
-      <div class="pstep"><div class="pn">03</div><div><h3>He asks, and we answer in five minutes</h3><p>A text, immediately, at any hour. The industry takes six hours. This is the step that decides who gets the deal.</p></div></div>
-      <div class="pstep"><div class="pn">04</div><div><h3>He gets qualified against your box, not a generic form</h3><p>We build the questions around your lending criteria — address, price, ARV, close date, experience, cash to close, and whatever else you need to make a call. Asked one at a time, by text, the way a person would ask. Everything you need to pre-qualify him is captured before he ever reaches your calendar.</p></div></div>
-      <div class="pstep"><div class="pn">05</div><div><h3>He lands on your calendar</h3><p>Booked, confirmed, reminded. The deal sheet arrives before he does. If he no-shows, we chase and rebook.</p></div></div>
-      <div class="pstep"><div class="pn">06</div><div><h3>He comes back</h3><p>Not ready this month goes into nurture until he is. Funded this month gets a review request and, at seasoning, a cash-out offer. One borrower, two closings.</p></div></div>
+      <div class="pstep"><div class="pn">01</div><div><h3>The ads put you in the room</h3><p>Your ad is there the minute an investor starts looking — search, social, and the local map.</p></div></div>
+      <div class="pstep"><div class="pn">02</div><div><h3>The funnel makes you the obvious call</h3><p>One page per loan product, your terms and real closings — so he stops comparing rates.</p></div></div>
+      <div class="pstep"><div class="pn">03</div><div><h3>We answer in five minutes</h3><p>A text, instantly, any hour. The industry takes six. This step decides who gets the deal.</p></div></div>
+      <div class="pstep"><div class="pn">04</div><div><h3>Qualified to your box</h3><p>Address, price, ARV, close date, experience, cash — captured before he hits your calendar.</p></div></div>
+      <div class="pstep"><div class="pn">05</div><div><h3>Booked on your calendar</h3><p>Confirmed, reminded, deal sheet attached. No-shows chased and rebooked.</p></div></div>
+      <div class="pstep"><div class="pn">06</div><div><h3>He comes back</h3><p>Not-ready goes to nurture. Funded gets a seasoning cash-out offer. One borrower, two closings.</p></div></div>
     </div>
   </div>
 </section>
 
-<!-- 9 · WHAT'S INCLUDED -->
+<!-- INCLUDED -->
 <section class="included">
   <div class="wrap">
-    <h2>What we actually build for you</h2>
-
-    <div class="inc-cat">
-      <h3>The Ads</h3>
-      <div class="inc-items">
-        <div class="inc-item"><b>Market-Matched Search Campaigns</b> — Ads run only where you lend, split by loan product.</div>
-        <div class="inc-item"><b>Investor-Intent Keyword Architecture</b> — We bid what investors search and block what homeowners search.</div>
-        <div class="inc-item"><b>25 Conversion-Tested Ads</b> — Five hooks, five bodies, four angles that move investors.</div>
-        <div class="inc-item"><b>Retargeting That Stays on the Deal</b> — We follow the 95% who don't convert on the first visit.</div>
-        <div class="inc-item"><b>Google Business Profile Optimization</b> — Claimed, verified, fully built out: categories, services, markets, photos, Q&amp;A and posts.</div>
-        <div class="inc-item"><b>Map Pack Positioning</b> — The map sits above the paid results. Most lenders leave it empty. We fill it and feed it reviews.</div>
+    <div class="kicker">What we build</div>
+    <h2>Everything, run end to end.</h2>
+    <div class="pillars">
+      <div class="pillar">
+        <div class="pico"><svg viewBox="0 0 24 24"><path d="M3 11l18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/></svg></div>
+        <h3>The Ads</h3>
+        <p>Investor-intent search, social &amp; map — running only where you lend.</p>
+      </div>
+      <div class="pillar">
+        <div class="pico"><svg viewBox="0 0 24 24"><polygon points="3 4 21 4 14 12 14 20 10 22 10 12 3 4"/></svg></div>
+        <h3>The Funnels</h3>
+        <p>One page per loan product, built to make you the obvious call.</p>
+      </div>
+      <div class="pillar">
+        <div class="pico"><svg viewBox="0 0 24 24"><path d="M13 2L3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+        <h3>The Engine</h3>
+        <p>5-minute response, qualification to your box, nurture &amp; takeout.</p>
+      </div>
+      <div class="pillar">
+        <div class="pico"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        <h3>The Reporting</h3>
+        <p>Cost per funded loan, every appointment logged, all in your CRM.</p>
       </div>
     </div>
 
-    <div class="inc-cat">
-      <h3>The Funnels</h3>
-      <div class="inc-items">
-        <div class="inc-item"><b>Product-Specific Deal Pages</b> — One page per loan type. Not your homepage.</div>
-        <div class="inc-item"><b>Short-Form Deal Capture</b> — A few questions, one at a time, done in under a minute.</div>
-        <div class="inc-item"><b>Your Terms, Stated Plainly</b> — Leverage, minimums, timelines. Published, not hidden behind a call.</div>
-        <div class="inc-item"><b>Recent Closings, Real Numbers</b> — Your own funded deals doing the convincing.</div>
-        <div class="inc-item"><b>Instant Booking on the Thank-You Page</b> — A calendar the second he submits, not an email later.</div>
-        <div class="inc-item"><b>Built for a Phone</b> — He's standing in the property when he finds you.</div>
-        <div class="inc-item"><b>VSL &amp; Ad Scripts</b> — Written for your offer, not pulled from a template.</div>
+    <details class="incl-more">
+      <summary>The full build — 23 deliverables, all included</summary>
+      <div class="incl-body">
+        <div class="incl-cat"><h4>The Ads</h4><div class="incl-items">
+          <div><b>Market-Matched Search Campaigns</b> — run only where you lend, split by product.</div>
+          <div><b>Investor-Intent Keywords</b> — bid what investors search, block homeowners.</div>
+          <div><b>25 Conversion-Tested Ads</b> — five hooks, five bodies, four angles.</div>
+          <div><b>Retargeting</b> — we follow the 95% who don't convert first visit.</div>
+          <div><b>Google Business Profile</b> — claimed, verified, fully built out.</div>
+          <div><b>Map Pack Positioning</b> — the map above paid results, fed with reviews.</div>
+        </div></div>
+        <div class="incl-cat"><h4>The Funnels</h4><div class="incl-items">
+          <div><b>Product-Specific Deal Pages</b> — one page per loan type. Not your homepage.</div>
+          <div><b>Short-Form Deal Capture</b> — a few questions, done in under a minute.</div>
+          <div><b>Your Terms, Stated Plainly</b> — leverage, minimums, timelines. Published.</div>
+          <div><b>Recent Closings, Real Numbers</b> — your funded deals doing the convincing.</div>
+          <div><b>Instant Booking</b> — a calendar the second he submits.</div>
+          <div><b>Built for a Phone</b> — he's standing in the property when he finds you.</div>
+          <div><b>VSL &amp; Ad Scripts</b> — written for your offer, not a template.</div>
+        </div></div>
+        <div class="incl-cat"><h4>The Engine</h4><div class="incl-items">
+          <div><b>Five-Minute Response, 24/7</b> — every inquiry, every hour, automatically.</div>
+          <div><b>Qualification to Your Box</b> — your criteria. We screen, you underwrite.</div>
+          <div><b>Booking &amp; No-Show Rescue</b> — confirmed, reminded, rebooked.</div>
+          <div><b>Database Reactivation</b> — your old borrowers, worked.</div>
+          <div><b>Seasoning &amp; Takeout</b> — his refi number before anyone else.</div>
+          <div><b>Review Engine</b> — requests fire at funding; reviews feed the map.</div>
+        </div></div>
+        <div class="incl-cat"><h4>The Reporting</h4><div class="incl-items">
+          <div><b>Cost Per Funded Loan</b> — spend traced to closing, by campaign.</div>
+          <div><b>Every Appointment, Every Outcome</b> — the full log, monthly.</div>
+          <div><b>Everything In Your System</b> — leads flow to your CRM as they come.</div>
+          <div><b>You Own All Of It</b> — ad accounts in your name, full export any time.</div>
+        </div></div>
+        <p class="incl-reg"><b>Built for a regulated business:</b> business purpose only, geo-fenced to your licensed markets, NMLS where required, consent on every form. No invented reviews or results — ever.</p>
       </div>
-    </div>
+    </details>
 
-    <div class="inc-cat">
-      <h3>The Engine Behind It</h3>
-      <div class="inc-items">
-        <div class="inc-item"><b>Five-Minute Response, Around the Clock</b> — Every inquiry, every hour, automatically.</div>
-        <div class="inc-item"><b>Qualification Built to Your Box</b> — Your criteria, not a template. We screen, you underwrite.</div>
-        <div class="inc-item"><b>Booking &amp; No-Show Rescue</b> — Confirmed, reminded, and rebooked if he misses.</div>
-        <div class="inc-item"><b>Database Reactivation</b> — Your old borrowers, worked. They fund every three to six months.</div>
-        <div class="inc-item"><b>Seasoning &amp; Takeout Campaigns</b> — We're there with his refi number before anyone else is.</div>
-        <div class="inc-item"><b>Review Engine</b> — Requests fire at funding. Reviews feed the map. The map feeds the ads.</div>
+    <div class="gm">
+      <div class="gbox">
+        <div class="kicker">The guarantee</div>
+        <p><b>Six pre-qualified appointments in your first 90 days.</b> Miss it and we work free until we hit it, and refund your setup fee.</p>
+        <p>What counts is defined in writing and signed before we start — so there's never an argument. We guarantee what we control and report the rest.</p>
       </div>
-    </div>
-
-    <div class="inc-cat">
-      <h3>The Reporting</h3>
-      <div class="inc-items">
-        <div class="inc-item"><b>Cost Per Funded Loan</b> — Spend traced to closing, by campaign and keyword.</div>
-        <div class="inc-item"><b>Every Appointment, Every Outcome</b> — The full log, monthly. Audit the guarantee yourself.</div>
-        <div class="inc-item"><b>Everything Lands In Your System</b> — Leads flow into your CRM as they come in. You're never waiting on us for your own data.</div>
-        <div class="inc-item"><b>You Own All Of It</b> — Ad accounts in your name, funded by you. Full export any time, written into the agreement.</div>
+      <div class="mbox">
+        <div class="kicker">The math</div>
+        <p>$5K/mo in media ≈ <b>6–12 appointments</b> ≈ 1–3 funded. Break-even lands around one deal a month.</p>
+        <p>On the call we run this with your numbers, not mine.</p>
       </div>
-    </div>
-
-    <div class="inc-cat">
-      <h3>Built for a Regulated Business</h3>
-      <p class="reg">Business purpose only. Geo-fenced to your licensed markets. NMLS where required. Consent on every form, registered messaging throughout. No invented reviews or results — ever.</p>
-    </div>
-
-    <div class="guarantee-box">
-      <h3>The Guarantee</h3>
-      <p><b>Six pre-qualified appointments in your first 90 days.</b> Miss it and we work free until we hit it, and refund your setup fee.</p>
-      <p>A qualifying appointment: business purpose, non-owner-occupied, a specific property with price and ARV, a target close date, stated experience, above your loan minimum — plus any criteria of your own we agree to add. That definition is written down and signed off before we start, so there's never an argument about what counted.</p>
-      <p>We don't guarantee funded loans. We don't control your underwriting, your pricing or your capital. We guarantee what we control and we report the rest.</p>
-    </div>
-
-    <div class="mathbox">
-      <h3>The Math</h3>
-      <p>$5,000 a month in media produces roughly 6 to 12 appointments. At typical close rates, one to three of those fund.</p>
-      <p><b>If you fund it</b> — $12K to $20K per deal on a $400K bridge. Break-even lands around one deal a month. <b>If you place it</b> — $4K to $8K on the same deal. Break-even lands around two.</p>
-      <p><em>On the call we run this with your numbers instead of mine.</em></p>
     </div>
   </div>
 </section>
 
-<!-- 10 · WHY CHOOSE YOU -->
+<!-- COMPARE -->
 <section class="compare">
   <div class="wrap">
-    <h2>Three ways to buy deal flow. Only one of them is accountable.</h2>
+    <div class="kicker">Why choose us</div>
+    <h2>Three ways to buy deal flow. One is accountable.</h2>
     <div class="compare-cards">
       <div class="ccard">
         <div class="ccard-h">Lead vendors</div>
-        <div class="crow"><span class="cl">What you get</span><span class="cv">A contact record, often sold to three other lenders</span></div>
+        <div class="crow"><span class="cl">What you get</span><span class="cv">A contact record, often sold to 3 other lenders</span></div>
         <div class="crow"><span class="cl">Who chases it</span><span class="cv">You do</span></div>
-        <div class="crow"><span class="cl">Who owns the pipeline</span><span class="cv">They do</span></div>
-        <div class="crow"><span class="cl">What gets measured</span><span class="cv">Leads delivered</span></div>
-        <div class="crow"><span class="cl">Your past borrowers</span><span class="cv">Ignored</span></div>
-        <div class="crow"><span class="cl">If the number misses</span><span class="cv">Your problem</span></div>
+        <div class="crow"><span class="cl">What's measured</span><span class="cv">Leads delivered</span></div>
+        <div class="crow"><span class="cl">Past borrowers</span><span class="cv">Ignored</span></div>
+        <div class="crow"><span class="cl">If it misses</span><span class="cv">Your problem</span></div>
       </div>
       <div class="ccard">
         <div class="ccard-h">Ad agencies</div>
         <div class="crow"><span class="cl">What you get</span><span class="cv">Campaigns, creative, a monthly report</span></div>
         <div class="crow"><span class="cl">Who chases it</span><span class="cv">You do</span></div>
-        <div class="crow"><span class="cl">Who owns the pipeline</span><span class="cv">Often their CRM</span></div>
-        <div class="crow"><span class="cl">What gets measured</span><span class="cv">Impressions and clicks</span></div>
-        <div class="crow"><span class="cl">Your past borrowers</span><span class="cv">Ignored</span></div>
-        <div class="crow"><span class="cl">If the number misses</span><span class="cv">Your problem</span></div>
+        <div class="crow"><span class="cl">What's measured</span><span class="cv">Impressions and clicks</span></div>
+        <div class="crow"><span class="cl">Past borrowers</span><span class="cv">Ignored</span></div>
+        <div class="crow"><span class="cl">If it misses</span><span class="cv">Your problem</span></div>
       </div>
       <div class="ccard hl">
         <div class="ccard-h">Safary</div>
-        <div class="crow"><span class="cl">What you get</span><span class="cv">A pre-qualified borrower, booked, with the deal on the sheet</span></div>
-        <div class="crow"><span class="cl">Who chases it</span><span class="cv">We do — in under five minutes, day or night</span></div>
-        <div class="crow"><span class="cl">Who owns the pipeline</span><span class="cv">You do. Every lead lands in your own system as it comes in.</span></div>
-        <div class="crow"><span class="cl">What gets measured</span><span class="cv">Cost per funded loan</span></div>
-        <div class="crow"><span class="cl">Your past borrowers</span><span class="cv">Worked. Reactivated now, refinanced at seasoning.</span></div>
-        <div class="crow"><span class="cl">If the number misses</span><span class="cv">We work free until we hit it, and refund your setup</span></div>
+        <div class="crow"><span class="cl">What you get</span><span class="cv">A pre-qualified borrower, booked, deal on the sheet</span></div>
+        <div class="crow"><span class="cl">Who chases it</span><span class="cv">We do — under 5 minutes, day or night</span></div>
+        <div class="crow"><span class="cl">What's measured</span><span class="cv">Cost per funded loan</span></div>
+        <div class="crow"><span class="cl">Past borrowers</span><span class="cv">Reactivated now, refinanced at seasoning</span></div>
+        <div class="crow"><span class="cl">If it misses</span><span class="cv">We work free until we hit it, and refund setup</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 11 · PROOF SLOT TWO — industry data until there are client results -->
+<!-- DATA -->
 <section class="data">
   <div class="wrap">
-    <h2>Don't take my word for it.</h2>
+    <div class="kicker">Don't take my word for it</div>
+    <h2>The industry data.</h2>
     <div class="stats">
-      <div class="stat"><div class="n">~6 hrs</div><div class="l">Average lender response time to a web inquiry</div></div>
-      <div class="stat"><div class="n">78%</div><div class="l">Of borrowers go with the first lender to respond</div></div>
-      <div class="stat"><div class="n">1 in 3</div><div class="l">Bridge borrowers refinance into a rental loan within 12 months</div></div>
-      <div class="stat"><div class="n">283 bps</div><div class="l">Current spread over the 10-year — tightest ever tracked, down from 424</div></div>
+      <div class="stat"><div class="n">~6 hrs</div><div class="l">Average lender response to a web inquiry</div></div>
+      <div class="stat"><div class="n">78%</div><div class="l">Go with the first lender to respond</div></div>
+      <div class="stat"><div class="n">1 in 3</div><div class="l">Bridge borrowers refi within 12 months</div></div>
+      <div class="stat"><div class="n">283 bps</div><div class="l">Spread over the 10-year — tightest ever</div></div>
     </div>
-    <p class="src">Every figure is published data — from industry speed-to-lead research, private-lending market data, and SFR analytics — and the source is named. Ask me for any of them.</p>
+    <p class="src">Every figure is published data and the source is named. Ask me for any of them.</p>
   </div>
 </section>
 
-<!-- 12 · CTA -->
+<!-- CTA -->
 <section class="ctaband">
   <div class="wrap">
     <h2>See whether the math works on your numbers.</h2>
     <a class="btn" href="#book">Book a Call</a>
-    <div class="btn-micro" style="color:#8FA3B4">Thirty minutes. We'll run your deal size, your points and your close rate.</div>
+    <div class="btn-micro" style="color:#8FA3B4">30 minutes. We'll run your deal size, your points and your close rate.</div>
   </div>
 </section>
 
-<!-- 13 · PROOF SLOT THREE — the honest section until there's a case study -->
+<!-- HONEST -->
 <section class="honest">
   <div class="wrap">
     <div class="card">
       <h2>What I can't show you yet</h2>
-      <p class="intro">I don't have a lender case study. I could have written one — plenty of agencies do, and you'd have no way to check it. Here's what I'd rather hand you instead.</p>
+      <p class="intro">I don't have a lender case study. I could have written one — plenty do, and you'd have no way to check it. Here's what I'd rather hand you instead.</p>
       <ul>
-        <li>Every number on this page is published data or yours. I'll send the sources.</li>
+        <li>Every number here is published data or yours — I'll send the sources.</li>
         <li>The guarantee is contractual, and defined before you sign.</li>
-        <li>Every appointment and its outcome is in your report. Audit me instead of trusting me.</li>
-        <li>The ad accounts are in your name and funded by you from day one.</li>
-        <li>Every lead lands in your own system as it arrives. You never have to ask me for your data.</li>
+        <li>Ad accounts and every lead are in your name from day one. Audit me, don't trust me.</li>
       </ul>
-      <p class="trade">Three founding clients at a founding rate — well below what this costs once the results are published — in exchange for permission to publish them. You get the work at a price that won't exist again. I get the case study. <b>The trade is explicit: the discount is payment for the data.</b></p>
+      <p class="trade">Three founding clients at a founding rate — well below what this costs once results are published — for permission to publish them. You get a price that won't exist again. I get the case study. <b>The discount is payment for the data.</b></p>
     </div>
   </div>
 </section>
 
-<!-- 14 · ABOUT US -->
+<!-- ABOUT -->
 <section class="about">
   <div class="wrap">
     <div class="founder">
       <div class="avatar">[ Founder photo ]</div>
       <div>
-        <h2 style="font-size:30px">Who you'd be working with</h2>
-        <p>I'm Sabrena, and I run Safary Marketing out of Oklahoma City.</p>
-        <p>Most agencies that pitch lenders learned this industry from a blog post. I learned it from the room — I sit inside the OKC real estate investor community, the same rooms where your borrowers find deals, compare lenders, and complain about draws that took nine days instead of two.</p>
-        <p>My background is the unglamorous half of marketing: acquisition, automation, follow-up, funnel infrastructure. The plumbing. Which turns out to be exactly what this industry is missing — because the gap in private lending isn't creative. It's that nobody answers in five minutes, and nobody can tell you what a funded loan cost.</p>
-        <p style="margin-bottom:0"><strong>I built Safary around one product, for one kind of client, measured by one number.</strong></p>
+        <div class="kicker">Who you'd work with</div>
+        <h2 style="font-size:30px;margin-bottom:16px">I'm Sabrena.</h2>
+        <p>I run Safary out of Oklahoma City, and I learned this industry from the room — the same OKC investor circles where your borrowers find deals and compare lenders.</p>
+        <p>My background is the unglamorous half of marketing: acquisition, automation, follow-up. The plumbing — which is exactly what private lending is missing.</p>
+        <p style="margin-bottom:0"><strong>One product, one kind of client, measured by one number.</strong></p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- 15 · FAQ -->
-<section class="faq">
-  <div class="wrap">
-    <h2>Questions we get.</h2>
-    <details open>
-      <summary>How is this different from a lead vendor?</summary>
-      <p>They sell you a contact record, often the same one they sold three other lenders. We generate the borrower, qualify him, and book him — with the property, the price, the ARV and the close date already captured.</p>
-    </details>
-    <details>
-      <summary>What happens to my pipeline if I stop?</summary>
-      <p>Nothing changes, because it was never held anywhere you couldn't reach. Every lead lands in your own system as it arrives, the ad accounts are in your name from day one, and full export is written into the contract. You don't have to ask for your data — you already have it.</p>
-    </details>
-    <details>
-      <summary>How fast will I see funded loans?</summary>
-      <p>Appointments start in weeks one to four, mostly from reactivating your existing list. First fundings from cold traffic land in month two to three — underwriting and closing runs 30 to 60 days even for a borrower who's ready today. Month six looks materially better than month three.</p>
-    </details>
-    <details>
-      <summary>What if an appointment isn't qualified?</summary>
-      <p>The definition is agreed in writing before you sign, and every appointment shows up in your report with its outcome. If it doesn't meet the definition, it doesn't count toward the guarantee.</p>
-    </details>
-    <details>
-      <summary>Do you work with brokers or only lenders who fund?</summary>
-      <p>Both, and hybrids. The guarantee is on appointments, and an appointment doesn't care whether you fund the deal or place it. The break-even math differs — we run yours on the call.</p>
-    </details>
-    <details>
-      <summary>Who pays for the ads?</summary>
-      <p>You do, directly, from an account in your name. Media never runs through my account and it's never marked up.</p>
-    </details>
-    <details>
-      <summary>Do you work with my competitors?</summary>
-      <p>Not in your market, for your product. Territory is agreed before signing.</p>
-    </details>
-    <details>
-      <summary>How do you handle compliance?</summary>
-      <p>Business purpose only, geo-fenced to your licensed markets, NMLS displayed where required, consent captured on every form, registered messaging throughout. And no invented reviews or results, ever.</p>
-    </details>
+<!-- FAQ -->
+<section class="faq-sec">
+  <div class="wrap narrow" style="margin:0 auto">
+    <h2 class="center">Questions we get.</h2>
+    <div style="margin-top:24px">
+      <details class="faq" open><summary>How is this different from a lead vendor?</summary><p>They sell a contact record, often the same one they sold three other lenders. We generate the borrower, qualify him, and book him — with the property, price, ARV and close date already captured.</p></details>
+      <details class="faq"><summary>What happens to my pipeline if I stop?</summary><p>Nothing changes. Every lead lands in your own system as it arrives, the ad accounts are in your name from day one, and full export is in the contract. You already have your data.</p></details>
+      <details class="faq"><summary>How fast will I see funded loans?</summary><p>Appointments in weeks 1–4, mostly from reactivating your list. First fundings from cold traffic in month 2–3 — closing takes 30–60 days even for a ready borrower. Month six beats month three.</p></details>
+      <details class="faq"><summary>What if an appointment isn't qualified?</summary><p>The definition is agreed in writing before you sign, and every appointment shows in your report with its outcome. If it doesn't meet the definition, it doesn't count toward the guarantee.</p></details>
+      <details class="faq"><summary>Brokers or only lenders who fund?</summary><p>Both, and hybrids. The guarantee is on appointments — which don't care whether you fund or place. The break-even math differs; we run yours on the call.</p></details>
+      <details class="faq"><summary>Who pays for the ads?</summary><p>You do, directly, from an account in your name. Media never runs through my account and it's never marked up.</p></details>
+      <details class="faq"><summary>Do you work with my competitors?</summary><p>Not in your market, for your product. Territory is agreed before signing.</p></details>
+      <details class="faq"><summary>How do you handle compliance?</summary><p>Business purpose only, geo-fenced to your licensed markets, NMLS where required, consent on every form, registered messaging throughout. No invented reviews or results, ever.</p></details>
+    </div>
   </div>
 </section>
 
-<!-- 16 · CALENDLY / BOOK -->
+<!-- BOOK -->
 <section class="book" id="book">
   <div class="wrap">
     <h2>Let's see whether the math works.</h2>
-    <p class="sub">Thirty minutes. Bring your average deal size and your close rate and we'll run it together. If it doesn't work for you, I'll tell you on the call.</p>
-
+    <p class="sub">Thirty minutes. Bring your average deal size and close rate and we'll run it together. If it doesn't work for you, I'll tell you on the call.</p>
     <form class="bookform" onsubmit="return false;" aria-label="Book a call">
-      <div><label for="f-name">Name</label><input id="f-name" type="text" autocomplete="name" placeholder="Your name"></div>
-      <div><label for="f-company">Company</label><input id="f-company" type="text" autocomplete="organization" placeholder="Company"></div>
-      <div><label for="f-email">Work email</label><input id="f-email" type="email" autocomplete="email" placeholder="you@company.com"></div>
-      <div><label for="f-phone">Phone</label><input id="f-phone" type="tel" autocomplete="tel" placeholder="(000) 000-0000"></div>
-      <div><label for="f-loans">Loans per month</label>
-        <select id="f-loans"><option value="">Select…</option><option>1–3</option><option>4–10</option><option>11–25</option><option>25+</option></select></div>
+      <div><label for="f-name">Name</label><input id="f-name" type="text" placeholder="Your name"></div>
+      <div><label for="f-company">Company</label><input id="f-company" type="text" placeholder="Company"></div>
+      <div><label for="f-email">Work email</label><input id="f-email" type="email" placeholder="you@company.com"></div>
+      <div><label for="f-phone">Phone</label><input id="f-phone" type="tel" placeholder="(000) 000-0000"></div>
+      <div><label for="f-loans">Loans per month</label><select id="f-loans"><option value="">Select…</option><option>1–3</option><option>4–10</option><option>11–25</option><option>25+</option></select></div>
       <div><label for="f-where">Where do you lend?</label><input id="f-where" type="text" placeholder="States / markets"></div>
-      <div><label for="f-model">Do you fund, place, or both?</label>
-        <select id="f-model"><option value="">Select…</option><option>Fund my own</option><option>Place with wholesale sources</option><option>Both</option></select></div>
-      <div><label for="f-spend">Current monthly marketing spend</label>
-        <select id="f-spend"><option value="">Select…</option><option>None</option><option>Under $2K</option><option>$2–5K</option><option>$5K+</option></select></div>
+      <div><label for="f-model">Fund, place, or both?</label><select id="f-model"><option value="">Select…</option><option>Fund my own</option><option>Place wholesale</option><option>Both</option></select></div>
+      <div><label for="f-spend">Monthly marketing spend</label><select id="f-spend"><option value="">Select…</option><option>None</option><option>Under $2K</option><option>$2–5K</option><option>$5K+</option></select></div>
       <button class="btn" type="submit">Book My Call</button>
     </form>
-    <div class="calbox">[ Live embedded booking calendar goes here — GHL / Calendly embed ]</div>
     <p class="foot-note">Investment property lending only. Not for owner-occupied consumer mortgages.</p>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <p><strong style="color:#A8B6C4">Safary Marketing</strong> · Oklahoma City. We are a marketing services provider, not a lender, mortgage broker, or licensed loan originator. We do not make credit decisions, underwrite loans, or issue funding commitments. All lending decisions, terms, and any proof-of-funds letters are issued solely by our clients.</p>
-    <p style="margin-top:12px">Investment property lending only. Not for owner-occupied consumer mortgages.</p>
-    <p style="margin-top:18px">© Safary Marketing · Privacy Policy · Terms</p>
+    <p><strong style="color:#A8B6C4">Safary Marketing</strong> · Oklahoma City · A marketing services provider — not a lender, mortgage broker, or licensed loan originator. All lending decisions, terms, and proof-of-funds letters are issued solely by our clients.</p>
+    <p>© Safary Marketing · Privacy Policy · Terms</p>
   </div>
 </footer>
 
 <script>
-/* Sticky-header shadow on scroll */
 (function(){
-  var nav = document.getElementById('siteNav');
-  if(!nav) return;
-  function onScroll(){ nav.classList.toggle('scrolled', window.scrollY > 8); }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
+  var nav=document.getElementById('siteNav'); if(!nav) return;
+  function s(){ nav.classList.toggle('scrolled', window.scrollY>8); }
+  window.addEventListener('scroll', s, {passive:true}); s();
 })();
-
-/* Scroll-reveal: fade-up section content as it enters view (JS-added, so no-JS shows everything) */
 (function(){
-  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if(reduce || !('IntersectionObserver' in window)) return;
-  var sel = [
-    '.hero .eyebrow','.hero h1','.hero .sub','.hero .guarantee',
-    '.vsl .above','.vslpanel','.vsl .cta',
-    'section > .wrap > h2',
-    '.painblock','.pain-close',
-    '.solution p',
-    '.pstep',
-    '.inc-cat','.guarantee-box','.mathbox',
-    '.ccard',
-    '.stats > .stat','.src',
-    '.ctaband .btn','.ctaband .btn-micro',
-    '.honest .card',
-    '.founder',
-    'details',
-    '.book .sub','.bookform','.calbox'
-  ].join(',');
-  var els = Array.prototype.slice.call(document.querySelectorAll(sel));
-  els.forEach(function(el){ el.classList.add('reveal'); });
-  var io = new IntersectionObserver(function(entries){
-    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
-  els.forEach(function(el){ io.observe(el); });
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(reduce||!('IntersectionObserver' in window)) return;
+  var sel=['.hero .eyebrow','.hero h1','.hero .sub','.hero .guarantee','.hero .cta-row','.appt-card',
+    '.vslpanel','.vsl .cta','section > .wrap > h2','section > .wrap > .kicker','.pain .lead',
+    '.leak','.pain-close','.solution p','.pstep','.pillar','.incl-more','.gm','.ccard',
+    '.stats > .stat','.src','.ctaband .btn','.honest .card','.founder','details.faq','.book .sub','.bookform'].join(',');
+  var els=[].slice.call(document.querySelectorAll(sel));
+  els.forEach(function(e){e.classList.add('reveal');});
+  var io=new IntersectionObserver(function(en){en.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(function(e){io.observe(e);});
 })();
 </script>
 
