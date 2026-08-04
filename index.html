@@ -182,6 +182,26 @@
   .mbox p{font-size:15.5px;color:var(--ink);margin-bottom:10px}
   .mbox p:last-child{margin-bottom:0;color:var(--muted);font-style:italic}
   .mbox b{font-weight:800}
+  .gterms{margin-top:14px;border-top:1px solid rgba(255,255,255,.12);padding-top:12px}
+  .gterms>summary{list-style:none;cursor:pointer;color:var(--gold);font-weight:600;font-size:14px}
+  .gterms>summary::-webkit-details-marker{display:none}
+  .gterms>summary::after{content:"  +";font-family:"DM Mono",monospace}
+  .gterms[open]>summary::after{content:"  –"}
+  .gterms p{font-size:13.5px;color:#AFC0D0;margin:12px 0 0}
+  .gterms b{color:#fff}
+
+  /* THE INVESTMENT */
+  .invest{background:var(--paper)}
+  .invest .card{max-width:900px;margin:26px auto 0;background:var(--white);border:1px solid var(--line);
+    border-radius:18px;padding:36px 38px;box-shadow:0 1px 3px rgba(15,23,41,.05)}
+  .invest .price-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+  .pcell{border:1px solid var(--line);border-radius:12px;padding:20px;text-align:center;background:var(--paper)}
+  .pcell .pn{font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--ink)}
+  .pcell .pl{font-size:13px;color:var(--muted);margin-top:6px}
+  .invest p{font-size:15.5px;color:var(--muted);max-width:78ch}
+  .invest p b{color:var(--ink)}
+  .invest .founding{font-style:italic;font-size:14px;margin-top:10px}
+  @media(max-width:620px){.invest .price-row{grid-template-columns:1fr}}
 
   /* COMPARE — matrix table (reflows on mobile, no horizontal scroll) */
   .wct{width:100%;border-collapse:separate;border-spacing:0;margin-top:34px;font-size:15px}
@@ -297,12 +317,12 @@
 <section class="hero" id="top">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">For lenders &amp; brokers placing 3+ loans a month</div>
-      <h1>6–12 pre-qualified investor appointments a month. <span class="accent">Or you don't pay.</span></h1>
-      <p class="sub">We run the ads and funnels that put borrowers — property under contract, close date set — straight on your calendar, with the deal on the sheet.</p>
+      <div class="eyebrow">For private money &amp; investor lenders and brokers placing 3+ loans a month</div>
+      <h1>6+ pre-qualified investor appointments a month, booked with the deal details attached. <span class="accent">Or we work that month free.</span></h1>
+      <p class="sub">Paid acquisition, funnel pages, five-minute response and booked appointments — for private money and investor lenders, and the brokers who place their loans.</p>
       <div class="guarantee">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2l7 3v6c0 4.5-3 7.9-7 9-4-1.1-7-4.5-7-9V5l7-3z"/><path d="M9 12l2 2 4-4"/></svg>
-        <span>6 in your first 90 days, or <b>we work free until we hit it — and refund your setup.</b></span>
+        <span>Six qualified appointments every month, starting month two. <b>Miss a month, we work that month free.</b></span>
       </div>
       <div class="cta-row">
         <a class="btn" href="#book">Book a Call</a>
@@ -334,7 +354,7 @@
       <div class="above">Two minutes on exactly how this works</div>
       <p>Funding fewer deals than your pipeline should produce?</p>
       <p>Inquiries come in and go quiet before anyone calls back?</p>
-      <p>Would you take 6–12 pre-qualified investor appointments a month?</p>
+      <p>Would you take six pre-qualified investor appointments a month, guaranteed?</p>
     </div>
     <div class="cta"><a class="btn" href="#book">Book a Call</a></div>
   </div>
@@ -441,7 +461,7 @@
           <div><b>25 Conversion-Tested Ads</b> — five hooks, five bodies, four angles.</div>
           <div><b>Retargeting</b> — we follow the 95% who don't convert first visit.</div>
           <div><b>Google Business Profile</b> — claimed, verified, fully built out.</div>
-          <div><b>Map Pack Positioning</b> — the map above paid results, fed with reviews.</div>
+          <div><b>Local Results Placement</b> — Google shows 3 local businesses above the paid ads. We get you there.</div>
         </div></div>
         <div class="incl-cat"><h4>The Funnels</h4><div class="incl-items">
           <div><b>Product-Specific Deal Pages</b> — one page per loan type. Not your homepage.</div>
@@ -458,7 +478,7 @@
           <div><b>Booking &amp; No-Show Rescue</b> — confirmed, reminded, rebooked.</div>
           <div><b>Database Reactivation</b> — your old borrowers, worked.</div>
           <div><b>Seasoning &amp; Takeout</b> — his refi number before anyone else.</div>
-          <div><b>Review Engine</b> — requests fire at funding; reviews feed the map.</div>
+          <div><b>Review Engine</b> — requests fire at funding. More reviews, higher local ranking, cheaper leads.</div>
         </div></div>
         <div class="incl-cat"><h4>The Reporting</h4><div class="incl-items">
           <div><b>Cost Per Funded Loan</b> — spend traced to closing, by campaign.</div>
@@ -473,14 +493,39 @@
     <div class="gm">
       <div class="gbox">
         <div class="kicker">The guarantee</div>
-        <p><b>Six pre-qualified appointments in your first 90 days.</b> Miss it and we work free until we hit it, and refund your setup fee.</p>
-        <p>What counts is defined in writing and signed before we start — so there's never an argument. We guarantee what we control and report the rest.</p>
+        <p><b>Six pre-qualified appointments every month, starting month two.</b> Month one is build and ramp. Miss a month after that and we work that month free.</p>
+        <p>After month six it becomes a performance standard — miss six in a month and you can cancel with 30 days' notice.</p>
+        <details class="gterms">
+          <summary>Full terms</summary>
+          <p><b>What counts:</b> business purpose, non-owner-occupied, a specific property with price and ARV, a target close date, stated experience, above your loan minimum — booked and confirmed. Signed off before we start; every appointment is in your monthly report with its outcome.</p>
+          <p><b>What suspends it:</b> a bookable calendar with open slots, ad spend held at the minimum, prior-month funded-loan reporting, and appointments attended within 24 hours of booking.</p>
+          <p><b>If it isn't working:</b> two consecutive misses and either of us can end it — setup fee back, and you keep every lead, record and ad account.</p>
+          <p>We don't guarantee funded loans; we don't control your underwriting, pricing or capital. We guarantee the appointment and report the funding.</p>
+        </details>
       </div>
       <div class="mbox">
         <div class="kicker">The math</div>
-        <p>$5K/mo in media ≈ <b>6–12 appointments</b> ≈ 1–3 funded. Break-even lands around one deal a month.</p>
-        <p>On the call we run this with your numbers, not mine.</p>
+        <p><b>Six qualified appointments a month.</b> At your close rate, that's your funded deals.</p>
+        <p><b>Fund it:</b> $12K–$20K per deal on a $400K bridge. <b>Place it:</b> 1–2 points at close.</p>
+        <p>On the call we run this with your close rate and deal size — not an industry average. If it doesn't clear on your numbers, we'll say so instead of signing you.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE INVESTMENT -->
+<section class="invest">
+  <div class="wrap">
+    <div class="kicker">The investment</div>
+    <h2>One price. No markup on media.</h2>
+    <div class="card">
+      <div class="price-row">
+        <div class="pcell"><div class="pn">$2,500</div><div class="pl">One-time setup</div></div>
+        <div class="pcell"><div class="pn">$5,000<span style="font-size:16px">/mo</span></div><div class="pl">Management</div></div>
+        <div class="pcell"><div class="pn">$5,000<span style="font-size:16px">/mo</span></div><div class="pl">Minimum media — paid by you, your accounts</div></div>
+      </div>
+      <p>Media is never marked up and never runs through our account. <b>There's no per-funded-loan fee</b> — charging on closings would give you a reason to under-report them, on the exact number this engagement is measured by.</p>
+      <p class="founding">Founding terms exist but aren't published. They're a conversation on the fit call.</p>
     </div>
   </div>
 </section>
@@ -490,6 +535,7 @@
   <div class="wrap">
     <div class="kicker">Why choose us</div>
     <h2>Three ways to buy deal flow. One is accountable.</h2>
+    <p class="lead" style="max-width:74ch;margin-top:-2px">Lead vendors sell you form fills. Agencies sell you campaigns. Software sells you a tool you run yourself. And appointment setters — the one thing that would actually solve this — don't exist in private lending. So we built it.</p>
     <table class="wct">
       <thead>
         <tr>
@@ -528,7 +574,7 @@
           <th>If it misses</th>
           <td data-c="Lead vendors">Your problem</td>
           <td data-c="Ad agencies">Your problem</td>
-          <td class="hl" data-c="Safary">We work free until we hit it, and refund setup</td>
+          <td class="hl" data-c="Safary">We work that month free. Miss twice and you walk with your setup fee back.</td>
         </tr>
       </tbody>
     </table>
@@ -598,10 +644,10 @@
     <div style="margin-top:24px">
       <details class="faq" open><summary>How is this different from a lead vendor?</summary><p>They sell a contact record, often the same one they sold three other lenders. We generate the borrower, qualify him, and book him — with the property, price, ARV and close date already captured.</p></details>
       <details class="faq"><summary>What happens to my pipeline if I stop?</summary><p>Nothing changes. Every lead lands in your own system as it arrives, the ad accounts are in your name from day one, and full export is in the contract. You already have your data.</p></details>
-      <details class="faq"><summary>How fast will I see funded loans?</summary><p>Appointments in weeks 1–4, mostly from reactivating your list. First fundings from cold traffic in month 2–3 — closing takes 30–60 days even for a ready borrower. Month six beats month three.</p></details>
-      <details class="faq"><summary>What if an appointment isn't qualified?</summary><p>The definition is agreed in writing before you sign, and every appointment shows in your report with its outcome. If it doesn't meet the definition, it doesn't count toward the guarantee.</p></details>
-      <details class="faq"><summary>Brokers or only lenders who fund?</summary><p>Both, and hybrids. The guarantee is on appointments — which don't care whether you fund or place. The break-even math differs; we run yours on the call.</p></details>
-      <details class="faq"><summary>Who pays for the ads?</summary><p>You do, directly, from an account in your name. Media never runs through my account and it's never marked up.</p></details>
+      <details class="faq"><summary>How fast will I see funded loans?</summary><p>Appointments start in month one, mostly from reactivating your list — that's why the guarantee starts month two, not day one. First fundings from cold traffic land in month 2–3, since closing runs 30–60 days even for a ready borrower. Month six looks materially better than month three.</p></details>
+      <details class="faq"><summary>What if an appointment isn't qualified?</summary><p>The definition is agreed in writing before we start, and every appointment shows in your report with its outcome. If it doesn't meet the definition, it doesn't count toward the guarantee — and it doesn't count toward our volume either.</p></details>
+      <details class="faq"><summary>Brokers or only lenders who fund?</summary><p>Both, and hybrids. The guarantee is on appointments — which don't care whether you fund or place. The economics differ though: a broker earns points at close, so this turns on average deal size rather than volume. We ask for that number on the call and tell you honestly whether it clears.</p></details>
+      <details class="faq"><summary>Who pays for the ads?</summary><p>You do, directly, from an account in your name. Media never runs through my account and it's never marked up. There's also no per-funded-loan fee — charging you on closings would give you a reason to under-report them, on the exact number this engagement is measured by.</p></details>
       <details class="faq"><summary>Do you work with my competitors?</summary><p>Not in your market, for your product. Territory is agreed before signing.</p></details>
       <details class="faq"><summary>How do you handle compliance?</summary><p>Business purpose only, geo-fenced to your licensed markets, NMLS where required, consent on every form, registered messaging throughout. No invented reviews or results, ever.</p></details>
     </div>
