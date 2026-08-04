@@ -183,17 +183,32 @@
   .mbox p:last-child{margin-bottom:0;color:var(--muted);font-style:italic}
   .mbox b{font-weight:800}
 
-  /* COMPARE */
-  .compare-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:34px;align-items:start}
-  .ccard{border:1px solid var(--line);border-radius:16px;background:var(--white);padding:24px 22px;box-shadow:0 1px 2px rgba(15,23,41,.04)}
-  .ccard.hl{border:1px solid var(--gold);box-shadow:0 14px 36px rgba(13,129,211,.14)}
-  .ccard-h{font-size:18px;font-weight:800;margin-bottom:16px;padding-bottom:13px;border-bottom:1px solid var(--line)}
-  .ccard.hl .ccard-h{color:var(--gold)}
-  .crow{margin-bottom:14px}.crow:last-child{margin-bottom:0}
-  .crow .cl{display:block;font-family:"DM Mono",monospace;font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
-  .crow .cv{font-size:14px;color:var(--muted);line-height:1.4}
-  .ccard.hl .crow .cv{color:var(--ink);font-weight:600}
-  @media(max-width:760px){.compare-cards{grid-template-columns:1fr}}
+  /* COMPARE — matrix table (reflows on mobile, no horizontal scroll) */
+  .wct{width:100%;border-collapse:separate;border-spacing:0;margin-top:34px;font-size:15px}
+  .wct th,.wct td{padding:16px 18px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  .wct thead th{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);
+    font-weight:700;border-bottom:2px solid var(--line)}
+  .wct tbody th{font-weight:700;color:var(--ink);width:160px}
+  .wct td{color:var(--muted);line-height:1.45}
+  .wct .hl{background:rgba(13,129,211,.06)}
+  .wct thead th.hl{color:var(--gold);background:rgba(13,129,211,.10);border-bottom:2px solid var(--gold);
+    border-radius:12px 12px 0 0;font-size:15px}
+  .wct td.hl{color:var(--ink);font-weight:600}
+  .wct tbody tr:last-child td.hl{border-radius:0 0 12px 12px}
+  .wct tbody tr:last-child th,.wct tbody tr:last-child td{border-bottom:0}
+  @media(max-width:680px){
+    .wct thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+    .wct,.wct tbody,.wct tr,.wct th,.wct td{display:block}
+    .wct tr{border:1px solid var(--line);border-radius:14px;background:var(--white);
+      margin-bottom:14px;padding:6px 0;box-shadow:0 1px 2px rgba(15,23,41,.04)}
+    .wct tbody th{width:auto;font-size:16px;font-weight:800;padding:12px 18px 8px;border-bottom:0}
+    .wct td{display:flex;justify-content:space-between;gap:16px;padding:10px 18px;border-bottom:0;
+      border-top:1px solid var(--line);text-align:right}
+    .wct td::before{content:attr(data-c);font-family:"DM Mono",monospace;font-size:10.5px;
+      letter-spacing:.05em;text-transform:uppercase;color:var(--muted);text-align:left;flex:none}
+    .wct .hl,.wct td.hl{background:none}
+    .wct td.hl{color:var(--gold-dark);font-weight:700}
+  }
 
   /* DATA */
   .data{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -475,32 +490,48 @@
   <div class="wrap">
     <div class="kicker">Why choose us</div>
     <h2>Three ways to buy deal flow. One is accountable.</h2>
-    <div class="compare-cards">
-      <div class="ccard">
-        <div class="ccard-h">Lead vendors</div>
-        <div class="crow"><span class="cl">What you get</span><span class="cv">A contact record, often sold to 3 other lenders</span></div>
-        <div class="crow"><span class="cl">Who chases it</span><span class="cv">You do</span></div>
-        <div class="crow"><span class="cl">What's measured</span><span class="cv">Leads delivered</span></div>
-        <div class="crow"><span class="cl">Past borrowers</span><span class="cv">Ignored</span></div>
-        <div class="crow"><span class="cl">If it misses</span><span class="cv">Your problem</span></div>
-      </div>
-      <div class="ccard">
-        <div class="ccard-h">Ad agencies</div>
-        <div class="crow"><span class="cl">What you get</span><span class="cv">Campaigns, creative, a monthly report</span></div>
-        <div class="crow"><span class="cl">Who chases it</span><span class="cv">You do</span></div>
-        <div class="crow"><span class="cl">What's measured</span><span class="cv">Impressions and clicks</span></div>
-        <div class="crow"><span class="cl">Past borrowers</span><span class="cv">Ignored</span></div>
-        <div class="crow"><span class="cl">If it misses</span><span class="cv">Your problem</span></div>
-      </div>
-      <div class="ccard hl">
-        <div class="ccard-h">Safary</div>
-        <div class="crow"><span class="cl">What you get</span><span class="cv">A pre-qualified borrower, booked, deal on the sheet</span></div>
-        <div class="crow"><span class="cl">Who chases it</span><span class="cv">We do — under 5 minutes, day or night</span></div>
-        <div class="crow"><span class="cl">What's measured</span><span class="cv">Cost per funded loan</span></div>
-        <div class="crow"><span class="cl">Past borrowers</span><span class="cv">Reactivated now, refinanced at seasoning</span></div>
-        <div class="crow"><span class="cl">If it misses</span><span class="cv">We work free until we hit it, and refund setup</span></div>
-      </div>
-    </div>
+    <table class="wct">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Lead vendors</th>
+          <th>Ad agencies</th>
+          <th class="hl">Safary</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>What you get</th>
+          <td data-c="Lead vendors">A contact record, often sold to 3 other lenders</td>
+          <td data-c="Ad agencies">Campaigns, creative, a monthly report</td>
+          <td class="hl" data-c="Safary">A pre-qualified borrower, booked, deal on the sheet</td>
+        </tr>
+        <tr>
+          <th>Who chases it</th>
+          <td data-c="Lead vendors">You do</td>
+          <td data-c="Ad agencies">You do</td>
+          <td class="hl" data-c="Safary">We do — under 5 minutes, day or night</td>
+        </tr>
+        <tr>
+          <th>What's measured</th>
+          <td data-c="Lead vendors">Leads delivered</td>
+          <td data-c="Ad agencies">Impressions and clicks</td>
+          <td class="hl" data-c="Safary">Cost per funded loan</td>
+        </tr>
+        <tr>
+          <th>Past borrowers</th>
+          <td data-c="Lead vendors">Ignored</td>
+          <td data-c="Ad agencies">Ignored</td>
+          <td class="hl" data-c="Safary">Reactivated now, refinanced at seasoning</td>
+        </tr>
+        <tr>
+          <th>If it misses</th>
+          <td data-c="Lead vendors">Your problem</td>
+          <td data-c="Ad agencies">Your problem</td>
+          <td class="hl" data-c="Safary">We work free until we hit it, and refund setup</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
@@ -615,7 +646,7 @@
   if(reduce||!('IntersectionObserver' in window)) return;
   var sel=['.hero .eyebrow','.hero h1','.hero .sub','.hero .guarantee','.hero .cta-row','.appt-card',
     '.vslpanel','.vsl .cta','section > .wrap > h2','section > .wrap > .kicker','.pain .lead',
-    '.leak','.pain-close','.solution p','.pstep','.pillar','.incl-more','.gm','.ccard',
+    '.leak','.pain-close','.solution p','.pstep','.pillar','.incl-more','.gm','.wct',
     '.stats > .stat','.src','.ctaband .btn','.honest .card','.founder','details.faq','.book .sub','.bookform'].join(',');
   var els=[].slice.call(document.querySelectorAll(sel));
   els.forEach(function(e){e.classList.add('reveal');});
